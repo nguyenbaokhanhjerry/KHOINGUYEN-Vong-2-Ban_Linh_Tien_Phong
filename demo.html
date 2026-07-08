@@ -3,154 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO ① Title tối ưu (~52 ký tự, chứa keyword "AI" + "đồ án tốt nghiệp") -->
-    <title>Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp</title>
-
-    <!-- SEO ① Description tối ưu (~155 ký tự, keyword + CTA ngầm) -->
+    <title>Project DNA — Giải mã DNA của đồ án tốt nghiệp</title>
     <meta
       name="description"
-      content="Project DNA dùng AI phân tích đồ án tốt nghiệp — kết nối sinh viên, trường ĐH và doanh nghiệp. Biến đồ án thành tài sản số được đánh giá và thương mại hóa."
+      content="Project DNA: nền tảng AI kết nối Sinh viên — Trường đại học — Doanh nghiệp, biến đồ án tốt nghiệp thành tài sản số có thể tìm kiếm, đánh giá và thương mại hóa."
     />
-
-    <!-- SEO ① Crawl directives -->
-    <meta name="robots" content="index, follow" />
-
-    <!-- SEO ① Canonical — TODO: thay bằng domain thật khi deploy -->
-    <link rel="canonical" href="https://your-domain.vn/" />
-
-    <!-- SEO ① Favicon — TODO: thay file /favicon.ico và /apple-touch-icon.png bằng file thật trước khi deploy -->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <!-- SEO ④ hreflang — Googlebot sẽ hiểu trang phục vụ 3 ngôn ngữ (cùng URL vì kiến trúc JS SPA).
-         Khi bạn tách thành /vi/ /en/ /jp/ sau này, hãy cập nhật href trỏ về URL riêng của từng phiên bản.
-         x-default trỏ về VI vì đây là ngôn ngữ gốc. -->
-    <link rel="alternate" hreflang="vi" href="https://your-domain.vn/" />
-    <link rel="alternate" hreflang="en" href="https://your-domain.vn/" />
-    <link rel="alternate" hreflang="ja" href="https://your-domain.vn/" />
-    <link rel="alternate" hreflang="x-default" href="https://your-domain.vn/" />
-
-    <!-- SEO ② Open Graph — Facebook, Zalo, LinkedIn… -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Project DNA" />
-    <meta property="og:locale" content="vi_VN" />
-    <meta property="og:locale:alternate" content="en_US" />
-    <meta property="og:locale:alternate" content="ja_JP" />
-    <!-- TODO: thay og:url bằng URL thật -->
-    <meta property="og:url" content="https://your-domain.vn/" />
-    <meta
-      property="og:title"
-      content="Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp"
-    />
-    <meta
-      property="og:description"
-      content="AI phân tích mã nguồn & báo cáo đồ án, kết nối sinh viên — trường ĐH — doanh nghiệp. Biến đồ án thành tài sản số."
-    />
-    <!-- TODO: chuẩn bị ảnh OG 1200×630 px, thay URL rồi bỏ comment -->
-    <!--
-    <meta property="og:image" content="https://your-domain.vn/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp" />
-    -->
-
-    <!-- SEO ② Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp"
-    />
-    <meta
-      name="twitter:description"
-      content="AI phân tích mã nguồn & báo cáo đồ án, kết nối sinh viên — trường ĐH — doanh nghiệp."
-    />
-    <!-- TODO: thay URL ảnh Twitter Card -->
-    <!-- <meta name="twitter:image" content="https://your-domain.vn/og-image.png" /> -->
-
-    <!-- SEO ⑥ Font Performance
-         - Preload Inter (body font, chiếm nhiều text) để giảm FOIT trên above-fold.
-         - Bricolage Grotesque dùng cho H1/H2 cũng ảnh hưởng LCP → preload.
-         - IBM Plex Mono chỉ dùng labels nhỏ → không cần preload.
-         - display=swap đã tích hợp trong URL Google Fonts → không block render.
-         - onload + noscript fallback: kỹ thuật async CSS load chuẩn để loại bỏ
-           render-blocking hoàn toàn. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload font LCP (Bricolage + Inter) —  giúp browser ưu tiên tải trước khi render -->
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <!-- Async load toàn bộ 3 font (bao gồm IBM Plex Mono) không block render -->
-    <link
-      rel="preload"
-      as="style"
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
+      rel="stylesheet"
     />
-    <!-- noscript fallback cho trình duyệt tắt JS -->
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-
-    <!-- SEO ③ Structured Data — JSON-LD
-         Sử dụng 3 schema types:
-         • WebSite  → Google sitelinks, Knowledge Panel
-         • Organization → E-E-A-T, thông tin tổ chức
-         • SoftwareApplication → Rich Snippet cho nền tảng
-         Không thêm aggregateRating / price vì file không có dữ liệu thực. -->
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Project DNA",
-        "url": "https://your-domain.vn/",
-        "description": "Nền tảng AI giải mã đồ án tốt nghiệp — kết nối Sinh viên, Trường đại học và Doanh nghiệp tại Việt Nam.",
-        "inLanguage": ["vi", "en", "ja"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Project DNA — Bản Lĩnh Tiên Phong",
-        "url": "https://your-domain.vn/",
-        "description": "Nhóm Bản Lĩnh Tiên Phong phát triển nền tảng AI kết nối sinh viên, trường đại học và doanh nghiệp thông qua phân tích đồ án tốt nghiệp.",
-        "foundingDate": "2026",
-        "areaServed": "VN",
-        "knowsLanguage": ["vi", "en", "ja"]
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Project DNA",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "Web",
-        "url": "https://your-domain.vn/",
-        "description": "AI phân tích mã nguồn, báo cáo và slide đồ án tốt nghiệp để tạo hồ sơ năng lực AI-Verified Profile — kết nối sinh viên với bài toán thực tế của doanh nghiệp.",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "VND",
-          "availability": "https://schema.org/InStock"
-        },
-        "featureList": [
-          "Semantic Parsing — phân tích sâu mã nguồn và báo cáo đồ án",
-          "Compatibility Scoring — tính điểm tương thích đồ án với bài toán doanh nghiệp",
-          "AI-Verified Profile — hồ sơ năng lực được AI xác thực khách quan"
-        ],
-        "audience": {
-          "@type": "Audience",
-          "audienceType": "Sinh viên, Doanh nghiệp công nghệ, Trường đại học"
-        }
-      }
-    ]
-    </script>
     <style>
       :root {
         --ink: #070b14;
@@ -1548,15 +1411,6 @@
     </style>
   </head>
   <body data-theme="dark">
-    <!-- SEO ⑧ Skip-to-content: cải thiện Accessibility score (Lighthouse ≥ 90)
-         → gián tiếp ảnh hưởng xếp hạng vì Google dùng Lighthouse để đánh giá trải nghiệm. -->
-    <a
-      href="#main-content"
-      class="skip-link"
-      style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"
-      onfocus="this.style.cssText='position:fixed;left:16px;top:16px;width:auto;height:auto;overflow:visible;padding:10px 18px;background:var(--cyan);color:#04140f;font-weight:700;border-radius:8px;z-index:99999;font-family:var(--font-m)'"
-      onblur="this.style.cssText='position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden'"
-    >Chuyển đến nội dung chính</a>
     <script>
       // Apply saved theme before first paint to avoid a flash of the wrong theme
       try {
@@ -1581,11 +1435,8 @@
     </div>
 
     <div id="scroll-progress"></div>
-    <!-- SEO ⑧ <main> landmark bắt buộc: Googlebot và screen reader dùng
-         để xác định vùng nội dung chính của trang. -->
-    <main id="main-content">
     <header id="siteHeader">
-      <nav id="navbar" aria-label="Điều hướng chính">
+      <nav id="navbar">
         <div class="logo">
           <span class="helix-dot"><i></i><i></i><i></i></span>PROJECT DNA
         </div>
@@ -1606,19 +1457,15 @@
             >
           </div>
 
-          <!-- SEO ⑧ lang-btn: role=group + aria-label cho từng nút để screen reader đọc rõ
-               tên ngôn ngữ thay vì chỉ đọc "VI" / "EN" / "JP". -->
-          <div class="language-switcher" role="group" aria-label="Chọn ngôn ngữ">
-            <button class="lang-btn active" data-language="vi" aria-label="Tiếng Việt" aria-pressed="true">VI</button>
+          <div class="language-switcher">
+            <button class="lang-btn active" data-language="vi">VI</button>
 
-            <button class="lang-btn" data-language="en" aria-label="English" aria-pressed="false">EN</button>
+            <button class="lang-btn" data-language="en">EN</button>
 
-            <button class="lang-btn" data-language="jp" aria-label="日本語" aria-pressed="false">JP</button>
+            <button class="lang-btn" data-language="jp">JP</button>
           </div>
 
-          <!-- SEO ⑧ aria-label mô tả hành động đang có hiệu lực; JS theme.js sẽ
-               cập nhật aria-label khi toggle. -->
-          <button id="themeToggle" class="theme-btn" aria-label="Chuyển sang chế độ sáng">
+          <button id="themeToggle" class="theme-btn" aria-label="Theme">
             🌙
           </button>
 
@@ -1631,17 +1478,14 @@
             Đặt lịch demo
           </a>
         </div>
-        <!-- SEO ⑧ aria-expanded sẽ được JS (navbar.js) cập nhật khi toggle menu
-             (code navbar.js đã gọi setAttribute('aria-expanded', ...) — đảm bảo khớp). -->
-        <button class="burger" id="burger" aria-label="Mở menu điều hướng" aria-expanded="false" aria-controls="navbar">
+        <button class="burger" id="burger" aria-label="Mở menu">
           <span></span><span></span><span></span>
         </button>
       </nav>
     </header>
 
     <!-- HERO -->
-    <!-- SEO ⑥ Section landmark + aria-label giúp Googlebot phân loại nội dung đúng ngũ cảnh -->
-    <section class="hero wrap" aria-label="Giới thiệu Project DNA">
+    <section class="hero wrap">
       <div class="hero-grid">
         <div class="reveal in">
           <span class="eyebrow" data-i18n="hero_eyebrow"
@@ -1681,10 +1525,7 @@
           </div>
         </div>
 
-        <!-- SEO ⑧ aria-hidden=true: DNA helix là animation trang trí thuần túy.
-             Nội dung thành phần ("Sinh viên", "Doanh nghiệp") đã có trong text bên trái.
-             Screen reader bỏ qua để tránh nhiễu. -->
-        <div class="helix-stage" aria-hidden="true">
+        <div class="helix-stage">
           <span class="node-label top">Sinh viên</span>
           <div class="dna-helix" id="helix"></div>
           <span class="node-label bottom">Doanh nghiệp</span>
@@ -1759,9 +1600,7 @@
       <div class="market-grid">
         <div class="chart-card reveal">
           <h4 data-i18n="m1_title">Quy mô thị trường EdTech Việt Nam</h4>
-          <span class="sub" data-i18n="m1_sub"
-            >Tỷ USD · IMARC Group, 2025–2034</span
-          >
+          <span class="sub" data-i18n="m1_sub">Tỷ USD · IMARC Group, 2025–2034</span>
           <svg viewBox="0 0 320 140" width="100%" height="140">
             <polyline
               points="10,120 90,102 170,74 250,40 305,18"
@@ -1804,17 +1643,13 @@
             </text>
           </svg>
           <div class="chart-legend">
-            <span data-i18n="m1_legend"
-              ><i style="background: #2fe6c9"></i>CAGR ~12,3%/năm</span
-            >
+            <span data-i18n="m1_legend"><i style="background: #2fe6c9"></i>CAGR ~12,3%/năm</span>
           </div>
         </div>
 
         <div class="chart-card reveal">
           <h4 data-i18n="m2_title">Quy mô thị trường AI trong Giáo dục</h4>
-          <span class="sub" data-i18n="m2_sub"
-            >Triệu USD · IMARC Group, 2025–2034</span
-          >
+          <span class="sub" data-i18n="m2_sub">Triệu USD · IMARC Group, 2025–2034</span>
           <svg viewBox="0 0 320 140" width="100%" height="140">
             <polyline
               points="10,124 90,118 170,96 250,54 305,16"
@@ -1857,9 +1692,7 @@
             </text>
           </svg>
           <div class="chart-legend">
-            <span data-i18n="m2_legend"
-              ><i style="background: #8b7cf6"></i>CAGR ~35,3%/năm</span
-            >
+            <span data-i18n="m2_legend"><i style="background: #8b7cf6"></i>CAGR ~35,3%/năm</span>
           </div>
         </div>
 
@@ -1888,15 +1721,9 @@
         </div>
 
         <div class="tabs reveal">
-          <button class="tab-btn active" data-tab="sv" data-i18n="tab_student">
-            Sinh viên
-          </button>
-          <button class="tab-btn" data-tab="dn" data-i18n="tab_business">
-            Doanh nghiệp
-          </button>
-          <button class="tab-btn" data-tab="tr" data-i18n="tab_university">
-            Trường đại học
-          </button>
+          <button class="tab-btn active" data-tab="sv" data-i18n="tab_student">Sinh viên</button>
+          <button class="tab-btn" data-tab="dn" data-i18n="tab_business">Doanh nghiệp</button>
+          <button class="tab-btn" data-tab="tr" data-i18n="tab_university">Trường đại học</button>
         </div>
 
         <div class="tab-panel active" data-panel="sv">
@@ -2004,11 +1831,10 @@
           không ai kết nối đồng thời cả ba: sinh viên, đồ án và doanh nghiệp.
         </p>
       </div>
-      <!-- SEO ⑤ H3 sub-headings dưới H2 "Một khoảng trống mà chưa ai lấp đầy" -->
       <div class="comp-grid">
         <div class="comp-card reveal">
           <div class="ring">01</div>
-          <h3 data-i18n="comp1_title">Thị trường quốc tế</h3>
+          <h4 data-i18n="comp1_title">Thị trường quốc tế</h4>
           <p data-i18n="comp1_body">
             Riipen (Canada) với mô hình Work-Integrated Learning, Parker Dewey
             (Mỹ) với Micro-Internship — đã chứng minh mô hình, nhưng chưa nội
@@ -2018,19 +1844,17 @@
         </div>
         <div class="comp-card reveal">
           <div class="ring">02</div>
-          <h3 data-i18n="comp2_title">Sàn giao dịch công nghệ</h3>
+          <h4 data-i18n="comp2_title">Sàn giao dịch công nghệ</h4>
           <p data-i18n="comp2_body">
             Techport.vn và các sàn KH&amp;CN có uy tín với công nghệ nặng, tài
             sản trí tuệ của viện, trường lâu năm — nhưng bỏ trống hoàn toàn phân
             khúc đồ án tốt nghiệp sinh viên.
           </p>
-          <div class="gap" data-i18n="comp2_gap">
-            → Cơ hội chiếm lĩnh phân khúc trẻ
-          </div>
+          <div class="gap" data-i18n="comp2_gap">→ Cơ hội chiếm lĩnh phân khúc trẻ</div>
         </div>
         <div class="comp-card reveal">
           <div class="ring">03</div>
-          <h3 data-i18n="comp3_title">Cổng tuyển dụng</h3>
+          <h4 data-i18n="comp3_title">Cổng tuyển dụng</h4>
           <p data-i18n="comp3_body">
             TopCV, VietnamWorks có lưu lượng lớn nhưng chỉ dựa trên CV tĩnh, dễ
             "khai khống" năng lực và không liên kết với đồ án hay dữ liệu đào
@@ -2051,17 +1875,14 @@
           <h2 data-i18n="s4_h2">
             Từ kho lưu trữ thụ động đến hệ sinh thái kết nối chủ động
           </h2>
-          <p data-i18n="s4_body">
-            Một chu trình khép kín: Doanh nghiệp — Nhà trường — Sinh viên.
-          </p>
+          <p data-i18n="s4_body">Một chu trình khép kín: Doanh nghiệp — Nhà trường — Sinh viên.</p>
         </div>
-        <!-- SEO ⑤ H3 sub-headings dưới H2 "Từ kho lưu trữ..." — flow steps -->
         <div class="flow reveal">
           <div class="flow-line"></div>
           <div class="flow-step">
             <div class="flow-num">01</div>
             <div>
-              <h3 data-i18n="flow1_title">Doanh nghiệp thiết lập yêu cầu</h3>
+              <h4 data-i18n="flow1_title">Doanh nghiệp thiết lập yêu cầu</h4>
               <p data-i18n="flow1_body">
                 Đăng tải "bài toán thực tế" — tính năng, thách thức R&D — kèm
                 ngân sách và mô tả kỹ thuật.
@@ -2071,7 +1892,7 @@
           <div class="flow-step">
             <div class="flow-num">02</div>
             <div>
-              <h3 data-i18n="flow2_title">Giảng viên cấu trúc đề tài</h3>
+              <h4 data-i18n="flow2_title">Giảng viên cấu trúc đề tài</h4>
               <p data-i18n="flow2_body">
                 Chuẩn hóa yêu cầu doanh nghiệp thành đề tài đồ án đạt chuẩn học
                 thuật, vẫn giữ nguyên lõi kỹ thuật cần giải quyết.
@@ -2081,7 +1902,7 @@
           <div class="flow-step">
             <div class="flow-num">03</div>
             <div>
-              <h3 data-i18n="flow3_title">Sinh viên đăng ký và triển khai</h3>
+              <h4 data-i18n="flow3_title">Sinh viên đăng ký và triển khai</h4>
               <p data-i18n="flow3_body">
                 AI gợi ý đề tài tương thích nhất theo kỹ năng tích lũy; sinh
                 viên thực hiện dưới sự đồng hướng dẫn của giảng viên và chuyên
@@ -2092,9 +1913,7 @@
           <div class="flow-step">
             <div class="flow-num">04</div>
             <div>
-              <h3 data-i18n="flow4_title">
-                Hệ thống chấm điểm &amp; tạo DNA dự án
-              </h3>
+              <h4 data-i18n="flow4_title">Hệ thống chấm điểm &amp; tạo DNA dự án</h4>
               <p data-i18n="flow4_body">
                 AI phân tích đa chiều báo cáo, mã nguồn và slide để dựng hồ sơ
                 "AI-Verified Profile" cho từng sinh viên.
@@ -2104,7 +1923,7 @@
           <div class="flow-step">
             <div class="flow-num">05</div>
             <div>
-              <h3 data-i18n="flow5_title">Doanh nghiệp tiếp cận Dashboard</h3>
+              <h4 data-i18n="flow5_title">Doanh nghiệp tiếp cận Dashboard</h4>
               <p data-i18n="flow5_body">
                 Xem điểm số Project DNA, so sánh ứng viên trực quan, tiến tới
                 tuyển dụng hoặc chuyển giao công nghệ.
@@ -2130,11 +1949,10 @@
         </p>
       </div>
 
-      <!-- SEO ⑤ H3 sub-headings dưới H2 "AI không chỉ đọc tiêu đề" — đúng phân cấp H1→H2→H3 -->
       <div class="engine-grid">
         <div class="engine-card reveal">
           <div class="idx">Engine / 01</div>
-          <h3>Semantic Parsing</h3>
+          <h4>Semantic Parsing</h4>
           <p data-i18n="engine1_body">
             Phân tích sâu mã nguồn, báo cáo và logic nghiệp vụ để dựng bản đồ kỹ
             năng thực tế (skill-cloud maps) cho từng sinh viên.
@@ -2142,7 +1960,7 @@
         </div>
         <div class="engine-card reveal">
           <div class="idx">Engine / 02</div>
-          <h3>Compatibility Scoring</h3>
+          <h4>Compatibility Scoring</h4>
           <p data-i18n="engine2_body">
             Tính điểm tương thích giữa bài toán doanh nghiệp và "DNA" của đồ án
             — gợi ý ghép nối tự động, như một "Tinder cho tri thức".
@@ -2150,7 +1968,7 @@
         </div>
         <div class="engine-card reveal">
           <div class="idx">Engine / 03</div>
-          <h3>AI-Verified Profile</h3>
+          <h4>AI-Verified Profile</h4>
           <p data-i18n="engine3_body">
             Hồ sơ năng lực được AI xác thực khách quan: ngôn ngữ lập trình, kiến
             trúc hệ thống, độ phức tạp thuật toán, tiềm năng thương mại.
@@ -2159,9 +1977,7 @@
       </div>
 
       <div class="engine-card reveal">
-        <h3 style="margin-bottom: 16px" data-i18n="engine_why_title">
-          Vì sao mô hình này vận hành được
-        </h3>
+        <h4 style="margin-bottom: 16px" data-i18n="engine_why_title">Vì sao mô hình này vận hành được</h4>
         <div class="chips">
           <span class="chip" data-i18n="chip1"
             >Giải "Cold Start" — DN đăng bài toán làm mồi thu hút dữ liệu chất
@@ -2198,19 +2014,18 @@
           <span class="eyebrow" data-i18n="s6_eyebrow">Lợi ích mang lại</span>
           <h2 data-i18n="s6_h2">Một nền tảng, hai giá trị song hành</h2>
         </div>
-        <!-- SEO ⑤ H3 sub-headings dưới H2 "Một nền tảng, hai giá trị song hành" -->
         <div class="benefit-grid">
           <div class="benefit-col reveal">
             <span class="who" data-i18n="tab_student">Sinh viên</span>
             <div class="benefit-item">
-              <h3 data-i18n="ben1_title">Portfolio thông minh</h3>
+              <h4 data-i18n="ben1_title">Portfolio thông minh</h4>
               <p data-i18n="ben1_body">
                 Tự động tổng hợp mã nguồn, kết quả thử nghiệm và báo cáo chuyên
                 sâu thành hồ sơ năng lực trực quan.
               </p>
             </div>
             <div class="benefit-item">
-              <h3 data-i18n="ben2_title">Kết nối cơ hội</h3>
+              <h4 data-i18n="ben2_title">Kết nối cơ hội</h4>
               <p data-i18n="ben2_body">
                 Ghép nối năng lực cá nhân với yêu cầu thực tế từ các doanh
                 nghiệp đối tác — không cần quen biết trước.
@@ -2220,14 +2035,14 @@
           <div class="benefit-col dn reveal">
             <span class="who" data-i18n="tab_business">Doanh nghiệp</span>
             <div class="benefit-item">
-              <h3 data-i18n="ben3_title">Săn đón nhân tài sớm</h3>
+              <h4 data-i18n="ben3_title">Săn đón nhân tài sớm</h4>
               <p data-i18n="ben3_body">
                 Tối ưu chi phí R&D, tuyển dụng và rút ngắn time-to-market qua
                 kết nối trực tiếp với sinh viên và trường đại học.
               </p>
             </div>
             <div class="benefit-item">
-              <h3 data-i18n="ben4_title">Giải pháp thực chiến</h3>
+              <h4 data-i18n="ben4_title">Giải pháp thực chiến</h4>
               <p data-i18n="ben4_body">
                 Tiếp cận ý tưởng và giải pháp cho bài toán của mình thông qua
                 các đồ án tốt nghiệp xuất sắc nhất.
@@ -2256,9 +2071,7 @@
             <span data-i18n="ring_tam">TAM<br />Toàn thị trường</span>
           </div>
           <div class="ring-c r2">
-            <span data-i18n="ring_sam"
-              >SAM<br />15% DN ưu tiên<br />+ 100 trường</span
-            >
+            <span data-i18n="ring_sam">SAM<br />15% DN ưu tiên<br />+ 100 trường</span>
           </div>
           <div class="ring-c r3">
             <span data-i18n="ring_som">SOM<br />Năm 1</span>
@@ -2421,30 +2234,21 @@
               >
             </div>
           </div>
-          <!-- SEO ⑤ H3 sub-headings dưới H2 "Lộ trình 3 năm" -->
           <div class="kpi-stack">
             <div class="kpi-card reveal">
               <div class="label" data-i18n="kpi1_label">Quy mô tăng trưởng</div>
-              <h3 class="value" data-i18n="kpi1_value">5,6 lần</h3>
-              <p data-i18n="kpi1_body">
-                2.000 doanh nghiệp và 80 trường đại học vào năm 2028.
-              </p>
+              <div class="value" data-i18n="kpi1_value">5,6 lần</div>
+              <p data-i18n="kpi1_body">2.000 doanh nghiệp và 80 trường đại học vào năm 2028.</p>
             </div>
             <div class="kpi-card reveal">
               <div class="label" data-i18n="kpi2_label">Hiệu suất kết nối</div>
-              <h3 class="value">+15%</h3>
-              <p data-i18n="kpi2_body">
-                Tỷ lệ kết nối thành công tăng từ 10% lên 25%.
-              </p>
+              <div class="value">+15%</div>
+              <p data-i18n="kpi2_body">Tỷ lệ kết nối thành công tăng từ 10% lên 25%.</p>
             </div>
             <div class="kpi-card reveal">
-              <div class="label" data-i18n="kpi3_label">
-                Tỷ lệ giữ chân khách hàng
-              </div>
-              <h3 class="value">85%</h3>
-              <p data-i18n="kpi3_body">
-                Chứng minh giá trị cốt lõi của nền tảng qua Network Effect.
-              </p>
+              <div class="label" data-i18n="kpi3_label">Tỷ lệ giữ chân khách hàng</div>
+              <div class="value">85%</div>
+              <p data-i18n="kpi3_body">Chứng minh giá trị cốt lõi của nền tảng qua Network Effect.</p>
             </div>
           </div>
         </div>
@@ -2459,11 +2263,10 @@
         >
         <h2 data-i18n="s9_h2">Go-to-Market theo 3 giai đoạn</h2>
       </div>
-      <!-- SEO ⑤ H3 sub-headings dưới H2 "Go-to-Market theo 3 giai đoạn" -->
       <div class="gtm-grid reveal">
         <div class="gtm-item">
           <div class="gtm-phase" data-i18n="gtm1_phase">0–6 tháng</div>
-          <h3 data-i18n="gtm1_title">Xây dựng nguồn cung</h3>
+          <h4 data-i18n="gtm1_title">Xây dựng nguồn cung</h4>
           <p data-i18n="gtm1_body">
             Hợp tác 15 trường đại học để thu thập đồ án, xây cơ sở dữ liệu và
             khẳng định giá trị (Proof of Concept) cùng 300 doanh nghiệp.
@@ -2471,7 +2274,7 @@
         </div>
         <div class="gtm-item">
           <div class="gtm-phase" data-i18n="gtm2_phase">6–12 tháng</div>
-          <h3 data-i18n="gtm2_title">Phát triển khách hàng doanh nghiệp</h3>
+          <h4 data-i18n="gtm2_title">Phát triển khách hàng doanh nghiệp</h4>
           <p data-i18n="gtm2_body">
             Tiếp cận qua hiệp hội ngành nghề, trung tâm đổi mới sáng tạo và bán
             hàng B2B trực tiếp; tăng trưởng nhờ hiệu ứng mạng lưới.
@@ -2479,7 +2282,7 @@
         </div>
         <div class="gtm-item">
           <div class="gtm-phase" data-i18n="gtm3_phase">12+ tháng</div>
-          <h3 data-i18n="gtm3_title">Mở rộng quy mô</h3>
+          <h4 data-i18n="gtm3_title">Mở rộng quy mô</h4>
           <p data-i18n="gtm3_body">
             Dùng dữ liệu thực tế để cải thiện thuật toán AI, mở rộng toàn quốc
             và tích hợp với hệ thống quản lý học vụ hiện có.
@@ -2497,24 +2300,23 @@
           >
           <h2 data-i18n="s10_h2">Vậy tại sao phải chọn Project DNA?</h2>
         </div>
-        <!-- SEO ⑤ H3 sub-headings dưới H2 "Vậy tại sao phải chọn Project DNA?" -->
         <div class="why-grid">
           <div class="why-card reveal">
-            <h3 data-i18n="why1_title">Hiệu quả kinh tế</h3>
+            <h4 data-i18n="why1_title">Hiệu quả kinh tế</h4>
             <p data-i18n="why1_body">
               Tối ưu hóa quy trình kết nối, giảm thiểu chi phí tuyển dụng và R&D
               cho doanh nghiệp vừa và nhỏ.
             </p>
           </div>
           <div class="why-card reveal">
-            <h3 data-i18n="why2_title">Tính chính xác</h3>
+            <h4 data-i18n="why2_title">Tính chính xác</h4>
             <p data-i18n="why2_body">
               Dữ liệu năng lực được AI xác thực khách quan, giảm rủi ro tuyển
               sai người so với CV truyền thống.
             </p>
           </div>
           <div class="why-card reveal">
-            <h3 data-i18n="why3_title">Tính đổi mới</h3>
+            <h4 data-i18n="why3_title">Tính đổi mới</h4>
             <p data-i18n="why3_body">
               Đưa bài toán thực tế của doanh nghiệp vào trường học từ sớm, rút
               ngắn khoảng cách đào tạo — thị trường lao động.
@@ -2523,32 +2325,23 @@
         </div>
         <div class="check-grid reveal">
           <div class="check-item">
-            <span class="ok">✓</span>
-            <span data-i18n="check1">Cloud sẵn sàng, AI/LLM đã phổ biến</span>
+            <span class="ok">✓</span> <span data-i18n="check1">Cloud sẵn sàng, AI/LLM đã phổ biến</span>
           </div>
           <div class="check-item">
-            <span class="ok">✓</span>
-            <span data-i18n="check2"
-              >Dòng tiền ổn định theo mô hình B2B SaaS</span
-            >
+            <span class="ok">✓</span> <span data-i18n="check2">Dòng tiền ổn định theo mô hình B2B SaaS</span>
           </div>
           <div class="check-item">
-            <span class="ok">✓</span>
-            <span data-i18n="check3">Xóa bỏ lãng phí in ấn, hướng tới ESG</span>
+            <span class="ok">✓</span> <span data-i18n="check3">Xóa bỏ lãng phí in ấn, hướng tới ESG</span>
           </div>
           <div class="check-item">
-            <span class="ok">✓</span>
-            <span data-i18n="check4">Đẩy lùi gian lận, đạo văn học thuật</span>
+            <span class="ok">✓</span> <span data-i18n="check4">Đẩy lùi gian lận, đạo văn học thuật</span>
           </div>
           <div class="check-item">
-            <span class="ok">✓</span>
-            <span data-i18n="check5">Phù hợp Thông tư 01/2024/TT-BGDĐT</span>
+            <span class="ok">✓</span> <span data-i18n="check5">Phù hợp Thông tư 01/2024/TT-BGDĐT</span>
           </div>
           <div class="check-item">
-            <span class="ok">✓</span>
-            <span data-i18n="check6"
-              >Cơ hội công bằng cho sinh viên mọi vùng miền</span
-            >
+            <span class="ok">✓</span> <span data-i18n="check6">Cơ hội công bằng cho sinh viên mọi vùng
+            miền</span>
           </div>
         </div>
       </div>
@@ -2576,9 +2369,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Đóng <main> landmark trước footer -->
-    </main>
 
     <footer class="wrap">
       <div class="footer-grid">
@@ -2792,7 +2582,7 @@
             m2_sub: "USD million · IMARC Group, 2025–2034",
             m2_legend: "CAGR ~35.3%/year",
             sowhat:
-              "<b>So what?</b> The EdTech and AI-in-education markets are both growing at double-digit rates. But Project DNA doesn't compete with LMS or online-learning platforms — we solve a different gap: unlocking the value of graduation projects, connecting businesses, and driving innovation right from the classroom.",
+              '<b>So what?</b> The EdTech and AI-in-education markets are both growing at double-digit rates. But Project DNA doesn\'t compete with LMS or online-learning platforms — we solve a different gap: unlocking the value of graduation projects, connecting businesses, and driving innovation right from the classroom.',
 
             s2_body:
               "Students, businesses, and universities all face the same root problem: no digital platform yet connects and unlocks the real value of graduation projects.",
@@ -2895,8 +2685,7 @@
             tss_body:
               "A pricing model combining business and university subscriptions, based on annual revenue.",
             ring_tam: "TAM<br />Total market",
-            ring_sam:
-              "SAM<br />15% priority businesses<br />+ 100 universities",
+            ring_sam: "SAM<br />15% priority businesses<br />+ 100 universities",
             ring_som: "SOM<br />Year 1",
             tam_title: "Total addressable market (TAM)",
             tam_val: "~VND 967.14 billion / year",
@@ -3004,8 +2793,7 @@
             footer_copyright: "© 2026 Project DNA — Bản Lĩnh Tiên Phong",
             footer_tag: "UX/UIデモ・卒業プロジェクト",
 
-            ticker1:
-              "ベトナムのEdTech市場 <b>11億ドル→32億ドル</b>（2025〜2034年）",
+            ticker1: "ベトナムのEdTech市場 <b>11億ドル→32億ドル</b>（2025〜2034年）",
             ticker2: "教育分野のAI <b>年平均成長率35.31%</b>",
             ticker3: "<b>235万人</b>の在学中の学生",
             ticker4: "技術移転収入は大学収益の<b>5%未満</b>",
@@ -3209,11 +2997,8 @@
             }
           });
 
-          // SEO ⑦ Sync aria-pressed trên các lang-btn để screen reader thông báo ngôn ngữ đang chọn.
           buttons.forEach((btn) => {
-            const isActive = btn.dataset.language === lang;
-            btn.classList.toggle("active", isActive);
-            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+            btn.classList.toggle("active", btn.dataset.language === lang);
           });
 
           htmlEl.setAttribute("lang", lang === "jp" ? "ja" : lang);
