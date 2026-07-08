@@ -1,0 +1,17 @@
+﻿# robots.txt - Project DNA
+# TODO: Thay "your-domain.vn" bang domain that truoc khi deploy.
+# Sau khi deploy: submit sitemap tai Google Search Console
+#   https://search.google.com/search-console
+
+# Cho phep tat ca bot crawl toan bo trang
+User-agent: *
+Allow: /
+
+# Disallow cac thu muc khong can index (bo comment va chinh sua khi co)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /api/
+# Disallow: /staging/
+
+# Sitemap
+Sitemap: https://your-domain.vn/sitemap.xml

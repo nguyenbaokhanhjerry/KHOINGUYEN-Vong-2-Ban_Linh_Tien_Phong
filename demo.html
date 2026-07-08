@@ -1,0 +1,3343 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO ① Title tối ưu (~52 ký tự, chứa keyword "AI" + "đồ án tốt nghiệp") -->
+    <title>Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp</title>
+
+    <!-- SEO ① Description tối ưu (~155 ký tự, keyword + CTA ngầm) -->
+    <meta
+      name="description"
+      content="Project DNA dùng AI phân tích đồ án tốt nghiệp — kết nối sinh viên, trường ĐH và doanh nghiệp. Biến đồ án thành tài sản số được đánh giá và thương mại hóa."
+    />
+
+    <!-- SEO ① Crawl directives -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- SEO ① Canonical — TODO: thay bằng domain thật khi deploy -->
+    <link rel="canonical" href="https://your-domain.vn/" />
+
+    <!-- SEO ① Favicon — TODO: thay bằng file favicon thật -->
+    <!--
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    -->
+
+    <!-- SEO ② Open Graph — Facebook, Zalo, LinkedIn… -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Project DNA" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <!-- TODO: thay og:url bằng URL thật -->
+    <meta property="og:url" content="https://your-domain.vn/" />
+    <meta
+      property="og:title"
+      content="Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp"
+    />
+    <meta
+      property="og:description"
+      content="AI phân tích mã nguồn & báo cáo đồ án, kết nối sinh viên — trường ĐH — doanh nghiệp. Biến đồ án thành tài sản số."
+    />
+    <!-- TODO: chuẩn bị ảnh OG 1200×630 px, thay URL rồi bỏ comment -->
+    <!--
+    <meta property="og:image" content="https://your-domain.vn/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp" />
+    -->
+
+    <!-- SEO ② Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Project DNA — Nền tảng AI giải mã đồ án tốt nghiệp"
+    />
+    <meta
+      name="twitter:description"
+      content="AI phân tích mã nguồn & báo cáo đồ án, kết nối sinh viên — trường ĐH — doanh nghiệp."
+    />
+    <!-- TODO: thay URL ảnh Twitter Card -->
+    <!-- <meta name="twitter:image" content="https://your-domain.vn/og-image.png" /> -->
+
+    <!-- SEO ⑥ Font Performance
+         - Preload Inter (body font, chiếm nhiều text) để giảm FOIT trên above-fold.
+         - Bricolage Grotesque dùng cho H1/H2 cũng ảnh hưởng LCP → preload.
+         - IBM Plex Mono chỉ dùng labels nhỏ → không cần preload.
+         - display=swap đã tích hợp trong URL Google Fonts → không block render. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- SEO ③ Structured Data — JSON-LD
+         Sử dụng 3 schema types:
+         • WebSite  → Google sitelinks, Knowledge Panel
+         • Organization → E-E-A-T, thông tin tổ chức
+         • SoftwareApplication → Rich Snippet cho nền tảng
+         Không thêm aggregateRating / price vì file không có dữ liệu thực. -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Project DNA",
+        "url": "https://your-domain.vn/",
+        "description": "Nền tảng AI giải mã đồ án tốt nghiệp — kết nối Sinh viên, Trường đại học và Doanh nghiệp tại Việt Nam.",
+        "inLanguage": ["vi", "en", "ja"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Project DNA — Bản Lĩnh Tiên Phong",
+        "url": "https://your-domain.vn/",
+        "description": "Nhóm Bản Lĩnh Tiên Phong phát triển nền tảng AI kết nối sinh viên, trường đại học và doanh nghiệp thông qua phân tích đồ án tốt nghiệp.",
+        "foundingDate": "2026",
+        "areaServed": "VN",
+        "knowsLanguage": ["vi", "en", "ja"]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Project DNA",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "url": "https://your-domain.vn/",
+        "description": "AI phân tích mã nguồn, báo cáo và slide đồ án tốt nghiệp để tạo hồ sơ năng lực AI-Verified Profile — kết nối sinh viên với bài toán thực tế của doanh nghiệp.",
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "VND",
+          "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+          "Semantic Parsing — phân tích sâu mã nguồn và báo cáo đồ án",
+          "Compatibility Scoring — tính điểm tương thích đồ án với bài toán doanh nghiệp",
+          "AI-Verified Profile — hồ sơ năng lực được AI xác thực khách quan"
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Sinh viên, Doanh nghiệp công nghệ, Trường đại học"
+        }
+      }
+    ]
+    </script>
+    <style>
+      :root {
+        --ink: #070b14;
+        --panel: #0d1424;
+        --panel-2: #121b30;
+        --line: rgba(148, 167, 202, 0.14);
+        --line-strong: rgba(148, 167, 202, 0.3);
+        --cyan: #2fe6c9;
+        --cyan-dim: rgba(47, 230, 201, 0.13);
+        --amber: #f5a93f;
+        --amber-dim: rgba(245, 169, 63, 0.14);
+        --violet: #8b7cf6;
+        --violet-dim: rgba(139, 124, 246, 0.14);
+        --hi: #eef2f9;
+        --mid: #9fadc4;
+        --low: #5c6b87;
+        --r-lg: 22px;
+        --r-md: 14px;
+        --font-d: "Bricolage Grotesque", sans-serif;
+        --font-b: "Inter", sans-serif;
+        --font-m: "IBM Plex Mono", monospace;
+        --header-bg: rgba(7, 11, 20, 0.4);
+        --header-bg-scrolled: rgba(7, 11, 20, 0.86);
+      }
+
+      /* ---------- LIGHT THEME (same identity, inverted surfaces) ---------- */
+      body[data-theme="light"] {
+        --ink: #f4f6fb;
+        --panel: #ffffff;
+        --panel-2: #eef1f8;
+        --line: rgba(15, 23, 42, 0.1);
+        --line-strong: rgba(15, 23, 42, 0.22);
+        --hi: #0c1220;
+        --mid: #4b5875;
+        --low: #7c879c;
+        --header-bg: rgba(244, 246, 251, 0.6);
+        --header-bg-scrolled: rgba(244, 246, 251, 0.9);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+
+      body {
+        margin: 0;
+        background: var(--ink);
+        color: var(--hi);
+        font-family: var(--font-b);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 64px 64px;
+        -webkit-mask-image: radial-gradient(
+          ellipse 90% 60% at 50% 0%,
+          #000 0%,
+          transparent 75%
+        );
+        mask-image: radial-gradient(
+          ellipse 90% 60% at 50% 0%,
+          #000 0%,
+          transparent 75%
+        );
+        opacity: 0.6;
+      }
+
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 32px;
+        position: relative;
+        z-index: 1;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-d);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin: 0;
+        color: var(--hi);
+      }
+      p {
+        margin: 0;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .eyebrow {
+        font-family: var(--font-m);
+        font-size: 12.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 500;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background: var(--cyan);
+        display: inline-block;
+      }
+      .mid {
+        color: var(--mid);
+      }
+      section {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* ---------- NAV ---------- */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--header-bg);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid transparent;
+        transition:
+          background 0.3s ease,
+          border-color 0.3s ease;
+      }
+      header.scrolled {
+        background: var(--header-bg-scrolled);
+        border-bottom-color: var(--line);
+      }
+      nav {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 18px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-d);
+        font-weight: 700;
+        font-size: 19px;
+      }
+      .logo .helix-dot {
+        position: relative;
+        width: 16px;
+        height: 22px;
+      }
+      .logo .helix-dot i {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+      }
+      .logo .helix-dot i:nth-child(1) {
+        top: 0;
+        left: 0;
+        background: var(--cyan);
+      }
+      .logo .helix-dot i:nth-child(2) {
+        top: 8px;
+        left: 9px;
+        background: var(--violet);
+      }
+      .logo .helix-dot i:nth-child(3) {
+        top: 16px;
+        left: 0;
+        background: var(--cyan);
+      }
+      .navlinks {
+        display: flex;
+        gap: 30px;
+        font-size: 14.5px;
+        color: var(--mid);
+      }
+      .navlinks a {
+        transition: color 0.2s ease;
+        white-space: nowrap;
+      }
+      .navlinks a:hover {
+        color: var(--hi);
+      }
+      .nav-cta {
+        font-family: var(--font-m);
+        font-size: 13px;
+        padding: 10px 18px;
+        border-radius: 100px;
+        background: var(--cyan);
+        color: #04140f;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .nav-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px var(--cyan-dim);
+      }
+      .burger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 6px;
+      }
+      .burger span {
+        width: 22px;
+        height: 2px;
+        background: var(--hi);
+        display: block;
+        transition:
+          transform 0.2s ease,
+          opacity 0.2s ease;
+      }
+      .burger.is-active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .burger.is-active span:nth-child(2) {
+        opacity: 0;
+      }
+      .burger.is-active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* ---------- HERO ---------- */
+      .hero {
+        padding: 170px 0 0;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 40px;
+        align-items: center;
+      }
+      .hero h1 {
+        font-size: clamp(38px, 5vw, 60px);
+        line-height: 1.06;
+        margin: 22px 0 22px;
+      }
+      .hero h1 em {
+        font-style: normal;
+        color: var(--cyan);
+      }
+      .hero p.lead {
+        font-size: 17.5px;
+        color: var(--mid);
+        max-width: 520px;
+        margin-bottom: 34px;
+      }
+      .hero-ctas {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        margin-bottom: 46px;
+      }
+      .btn-primary {
+        font-family: var(--font-m);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 14px 26px;
+        border-radius: 100px;
+        background: var(--cyan);
+        color: #04140f;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px var(--cyan-dim);
+      }
+      .btn-ghost {
+        font-family: var(--font-m);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 14px 24px;
+        border-radius: 100px;
+        border: 1px solid var(--line-strong);
+        color: var(--hi);
+        transition:
+          border-color 0.2s ease,
+          background 0.2s ease;
+      }
+      .btn-ghost:hover {
+        border-color: var(--cyan);
+        background: var(--cyan-dim);
+      }
+
+      .hero-proof {
+        display: flex;
+        gap: 34px;
+        padding-top: 26px;
+        border-top: 1px solid var(--line);
+      }
+      .hero-proof div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .hero-proof strong {
+        font-family: var(--font-d);
+        font-size: 24px;
+        color: var(--hi);
+      }
+      .hero-proof span {
+        font-size: 12.5px;
+        color: var(--low);
+        font-family: var(--font-m);
+      }
+
+      /* DNA helix visual */
+      .helix-stage {
+        position: relative;
+        height: 460px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .dna-helix {
+        position: relative;
+        width: 150px;
+        height: 420px;
+      }
+      .rung {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 120px;
+        margin-left: -60px;
+        height: 0;
+        transform-style: preserve-3d;
+      }
+      .rung .bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--cyan), var(--violet));
+        opacity: 0.55;
+      }
+      .rung .ball {
+        position: absolute;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        top: -3.5px;
+        box-shadow: 0 0 10px currentColor;
+      }
+      .rung .ball.l {
+        left: -4.5px;
+        background: var(--cyan);
+        color: var(--cyan);
+      }
+      .rung .ball.r {
+        right: -4.5px;
+        background: var(--violet);
+        color: var(--violet);
+      }
+      .rung {
+        animation: spin 5.2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+
+      .helix-tags {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+      }
+      .helix-tag {
+        position: absolute;
+        font-family: var(--font-m);
+        font-size: 11.5px;
+        padding: 6px 12px;
+        border-radius: 100px;
+        background: var(--panel-2);
+        border: 1px solid var(--line-strong);
+        color: var(--mid);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+        white-space: nowrap;
+      }
+      .helix-tag.show {
+        opacity: 1;
+      }
+      .helix-tag.t1 {
+        top: 6%;
+        left: -8%;
+      }
+      .helix-tag.t2 {
+        top: 45%;
+        right: -14%;
+      }
+      .helix-tag.t3 {
+        bottom: 8%;
+        left: -4%;
+      }
+
+      .node-label {
+        position: absolute;
+        font-family: var(--font-m);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        color: var(--low);
+        text-transform: uppercase;
+      }
+      .node-label.top {
+        top: -26px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .node-label.bottom {
+        bottom: -26px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* ---------- TICKER ---------- */
+      .ticker-wrap {
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: var(--panel);
+        overflow: hidden;
+        margin-top: 100px;
+      }
+      .ticker {
+        display: flex;
+        width: max-content;
+        animation: scroll-x 32s linear infinite;
+      }
+      @keyframes scroll-x {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      .ticker-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 40px;
+        font-family: var(--font-m);
+        font-size: 13.5px;
+        color: var(--mid);
+        white-space: nowrap;
+        border-right: 1px solid var(--line);
+      }
+      .ticker-item b {
+        color: var(--hi);
+        font-weight: 600;
+      }
+      .ticker-item .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--cyan);
+      }
+
+      /* ---------- SECTION SHELL ---------- */
+      .section {
+        padding: 120px 0;
+      }
+      .section-head {
+        max-width: 640px;
+        margin-bottom: 60px;
+      }
+      .section-head h2 {
+        font-size: clamp(30px, 3.6vw, 42px);
+        margin-top: 16px;
+        line-height: 1.15;
+      }
+      .section-head p {
+        color: var(--mid);
+        font-size: 16px;
+        margin-top: 16px;
+      }
+      .section-alt {
+        background: var(--panel);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ---------- MARKET / CHARTS ---------- */
+      .market-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+      .chart-card {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 28px;
+      }
+      .chart-card h4 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .chart-card .sub {
+        font-family: var(--font-m);
+        font-size: 12px;
+        color: var(--low);
+        margin-bottom: 18px;
+        display: block;
+      }
+      .chart-legend {
+        display: flex;
+        gap: 18px;
+        margin-top: 14px;
+        font-family: var(--font-m);
+        font-size: 11.5px;
+        color: var(--mid);
+      }
+      .chart-legend span {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .chart-legend i {
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+        display: inline-block;
+      }
+
+      .sowhat {
+        margin-top: 28px;
+        background: var(--cyan-dim);
+        border: 1px solid rgba(47, 230, 201, 0.32);
+        border-radius: var(--r-md);
+        padding: 22px 26px;
+        font-size: 15px;
+        color: var(--hi);
+        grid-column: span 2;
+      }
+      .sowhat b {
+        color: var(--cyan);
+        font-family: var(--font-m);
+        font-size: 12.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      /* ---------- PAIN POINTS TABS ---------- */
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+      .tab-btn {
+        font-family: var(--font-m);
+        font-size: 13.5px;
+        padding: 10px 20px;
+        border-radius: 100px;
+        border: 1px solid var(--line-strong);
+        color: var(--mid);
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .tab-btn.active {
+        background: var(--cyan);
+        color: #04140f;
+        border-color: var(--cyan);
+        font-weight: 600;
+      }
+      .tab-panel {
+        display: none;
+      }
+      .tab-panel.active {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .pain-card {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        padding: 22px;
+      }
+      .pain-card .tag {
+        font-family: var(--font-m);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--amber);
+        display: block;
+        margin-bottom: 10px;
+      }
+      .pain-card p {
+        font-size: 14px;
+        color: var(--mid);
+        line-height: 1.55;
+      }
+
+      /* ---------- COMPETITIVE ---------- */
+      .comp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .comp-card {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 30px;
+        position: relative;
+      }
+      .comp-card .ring {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid var(--line-strong);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 22px;
+        font-family: var(--font-m);
+        font-size: 11px;
+        color: var(--mid);
+      }
+      .comp-card h4 {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+      .comp-card p {
+        color: var(--mid);
+        font-size: 14.5px;
+      }
+      .comp-card .gap {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        font-size: 13px;
+        color: var(--amber);
+        font-family: var(--font-m);
+      }
+
+      /* ---------- HOW IT WORKS ---------- */
+      .flow {
+        position: relative;
+      }
+      .flow-line {
+        position: absolute;
+        left: 27px;
+        top: 14px;
+        bottom: 14px;
+        width: 1px;
+        background: var(--line-strong);
+      }
+      .flow-step {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 26px;
+        padding: 26px 0;
+        position: relative;
+      }
+      .flow-step:not(:last-child) {
+        border-bottom: 1px solid var(--line);
+      }
+      .flow-num {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: var(--panel-2);
+        border: 1px solid var(--line-strong);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-m);
+        font-size: 14px;
+        color: var(--cyan);
+        z-index: 1;
+      }
+      .flow-step h4 {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .flow-step p {
+        color: var(--mid);
+        font-size: 15px;
+        max-width: 620px;
+      }
+
+      /* ---------- AI ENGINE ---------- */
+      .engine-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 26px;
+      }
+      .engine-card {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 28px;
+      }
+      .engine-card .idx {
+        font-family: var(--font-m);
+        font-size: 12px;
+        color: var(--violet);
+        margin-bottom: 14px;
+      }
+      .engine-card h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .engine-card p {
+        color: var(--mid);
+        font-size: 14.5px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 8px;
+      }
+      .chip {
+        font-family: var(--font-m);
+        font-size: 12px;
+        color: var(--mid);
+        border: 1px solid var(--line);
+        padding: 7px 14px;
+        border-radius: 100px;
+      }
+      .stack-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 26px;
+        padding-top: 26px;
+        border-top: 1px solid var(--line);
+      }
+      .stack-row span {
+        font-family: var(--font-m);
+        font-size: 12.5px;
+        color: var(--low);
+      }
+      .stack-row .stackitem {
+        font-family: var(--font-m);
+        font-size: 12.5px;
+        color: var(--hi);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        padding: 6px 12px;
+        border-radius: 6px;
+      }
+
+      /* ---------- BENEFITS ---------- */
+      .benefit-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .benefit-col {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 34px;
+      }
+      .benefit-col.dn {
+        border-color: rgba(139, 124, 246, 0.3);
+      }
+      .benefit-col .who {
+        font-family: var(--font-m);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        margin-bottom: 18px;
+        display: block;
+      }
+      .benefit-col.dn .who {
+        color: var(--violet);
+      }
+      .benefit-item {
+        padding: 16px 0;
+        border-top: 1px solid var(--line);
+      }
+      .benefit-item:first-of-type {
+        border-top: none;
+      }
+      .benefit-item h4 {
+        font-size: 16px;
+        margin-bottom: 6px;
+      }
+      .benefit-item p {
+        color: var(--mid);
+        font-size: 14.5px;
+      }
+
+      /* ---------- TAM SAM SOM ---------- */
+      .tss {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      .rings {
+        position: relative;
+        width: 360px;
+        height: 360px;
+        margin: auto;
+      }
+      .ring-c {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid var(--line-strong);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 22px;
+      }
+      .ring-c.r1 {
+        width: 360px;
+        height: 360px;
+        background: radial-gradient(
+          circle at 50% 30%,
+          rgba(47, 230, 201, 0.06),
+          transparent 70%
+        );
+      }
+      .ring-c.r2 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(
+          circle at 50% 30%,
+          rgba(139, 124, 246, 0.08),
+          transparent 70%
+        );
+      }
+      .ring-c.r3 {
+        width: 140px;
+        height: 140px;
+        background: var(--amber-dim);
+        border-color: rgba(245, 169, 63, 0.4);
+        align-items: center;
+        padding-top: 0;
+      }
+      .ring-c span {
+        font-family: var(--font-m);
+        font-size: 11px;
+        color: var(--low);
+        text-align: center;
+      }
+      .ring-c.r3 span {
+        color: var(--amber);
+        font-weight: 600;
+      }
+      .tss-list {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .tss-row {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        padding-bottom: 22px;
+        border-bottom: 1px solid var(--line);
+      }
+      .tss-row:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .tss-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-top: 6px;
+        flex: none;
+      }
+      .tss-row.tam .tss-dot {
+        background: var(--cyan);
+      }
+      .tss-row.sam .tss-dot {
+        background: var(--violet);
+      }
+      .tss-row.som .tss-dot {
+        background: var(--amber);
+      }
+      .tss-row h4 {
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+      .tss-row .val {
+        font-family: var(--font-m);
+        font-size: 22px;
+        color: var(--hi);
+        display: block;
+        margin: 4px 0;
+      }
+      .tss-row p {
+        color: var(--mid);
+        font-size: 14px;
+      }
+
+      /* ---------- FINANCE ---------- */
+      .fin-grid {
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 24px;
+      }
+      .kpi-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .kpi-card {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        padding: 22px 24px;
+      }
+      .kpi-card .label {
+        font-family: var(--font-m);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--low);
+      }
+      .kpi-card .value {
+        font-family: var(--font-d);
+        font-size: 32px;
+        margin: 6px 0;
+        color: var(--cyan);
+      }
+      .kpi-card p {
+        font-size: 13.5px;
+        color: var(--mid);
+      }
+
+      /* ---------- GTM ---------- */
+      .gtm-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        position: relative;
+      }
+      .gtm-item {
+        padding: 0 26px;
+        position: relative;
+      }
+      .gtm-item:not(:first-child) {
+        border-left: 1px solid var(--line);
+      }
+      .gtm-phase {
+        font-family: var(--font-m);
+        font-size: 12px;
+        color: var(--amber);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 14px;
+      }
+      .gtm-item h4 {
+        font-size: 19px;
+        margin-bottom: 12px;
+      }
+      .gtm-item p {
+        color: var(--mid);
+        font-size: 14.5px;
+      }
+
+      /* ---------- WHY / FEASIBILITY ---------- */
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-bottom: 50px;
+      }
+      .why-card {
+        background: var(--panel-2);
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 30px;
+      }
+      .why-card h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .why-card p {
+        color: var(--mid);
+        font-size: 14.5px;
+      }
+      .check-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: var(--mid);
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 12px 18px;
+      }
+      .check-item .ok {
+        color: var(--cyan);
+        font-family: var(--font-m);
+        font-size: 13px;
+      }
+
+      /* ---------- CTA / FOOTER ---------- */
+      .cta-band {
+        margin: 0 32px;
+        max-width: 1116px;
+        margin-inline: auto;
+        padding: 70px 60px;
+        border-radius: 32px;
+        background: linear-gradient(135deg, var(--panel-2), var(--panel));
+        border: 1px solid var(--line-strong);
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 40px;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-band::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--cyan-dim), transparent 70%);
+        right: -120px;
+        top: -160px;
+      }
+      .cta-band h2 {
+        font-size: clamp(26px, 3vw, 36px);
+        margin-bottom: 14px;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-band p {
+        color: var(--mid);
+        font-size: 15.5px;
+        max-width: 460px;
+        position: relative;
+        z-index: 1;
+      }
+      .cta-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        position: relative;
+        z-index: 1;
+      }
+
+      footer {
+        padding: 70px 0 40px;
+      }
+      .footer-grid {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-bottom: 30px;
+        border-bottom: 1px solid var(--line);
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .footer-grid .logo {
+        margin-bottom: 10px;
+      }
+      footer .fteam {
+        color: var(--low);
+        font-size: 13.5px;
+        font-family: var(--font-m);
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 24px;
+        font-size: 13px;
+        color: var(--low);
+        font-family: var(--font-m);
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .back-top {
+        position: fixed;
+        bottom: 26px;
+        right: 26px;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--panel-2);
+        border: 1px solid var(--line-strong);
+        color: var(--cyan);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 90;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s ease,
+          transform 0.2s ease;
+      }
+      .back-top.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .back-top:hover {
+        transform: translateY(-3px);
+      }
+
+      /* ---------- NAV RIGHT / THEME / LANGUAGE ---------- */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .language-switcher {
+        display: flex;
+        gap: 2px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 3px;
+      }
+      .lang-btn {
+        background: none;
+        border: none;
+        color: var(--mid);
+        font-family: var(--font-m);
+        font-size: 11.5px;
+        letter-spacing: 0.03em;
+        padding: 6px 10px;
+        border-radius: 100px;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+      .lang-btn:hover:not(.active) {
+        color: var(--hi);
+      }
+      .lang-btn.active {
+        background: var(--cyan);
+        color: #04140f;
+        font-weight: 600;
+      }
+      .theme-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--panel);
+        border: 1px solid var(--line);
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition:
+          border-color 0.2s ease,
+          transform 0.2s ease;
+        line-height: 1;
+        padding: 0;
+      }
+      .theme-btn:hover {
+        border-color: var(--line-strong);
+        transform: translateY(-1px);
+      }
+      .navlinks a.active {
+        color: var(--hi);
+      }
+
+      /* ---------- LOADING SCREEN ---------- */
+      #loading-screen {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          opacity 0.5s ease,
+          visibility 0.5s ease;
+      }
+      #loading-screen.loaded {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .loading-logo {
+        text-align: center;
+      }
+      .loading-title {
+        font-family: var(--font-d);
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.08em;
+        color: var(--hi);
+        margin-bottom: 8px;
+      }
+      .loading-subtitle {
+        font-family: var(--font-m);
+        font-size: 11.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--mid);
+        margin-bottom: 22px;
+      }
+      .loading-bar {
+        width: 180px;
+        height: 2px;
+        background: var(--line);
+        border-radius: 2px;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+      .loading-progress {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--cyan), var(--violet));
+        transition: width 0.25s ease;
+      }
+
+      /* ---------- SCROLL PROGRESS ---------- */
+      #scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--cyan), var(--violet));
+        z-index: 1000;
+        transition: width 0.1s linear;
+      }
+
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 980px) {
+        #navbar {
+          position: relative;
+        }
+        .nav-right {
+          display: none;
+        }
+        #navbar.mobile-open .nav-right {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 18px;
+          position: absolute;
+          top: calc(100% + 1px);
+          left: 0;
+          right: 0;
+          background: var(--panel);
+          border-bottom: 1px solid var(--line);
+          padding: 24px 32px 28px;
+        }
+        #navbar.mobile-open .navlinks {
+          flex-direction: column;
+          gap: 14px;
+          display: flex;
+        }
+        #navbar.mobile-open .nav-cta {
+          width: 100%;
+          text-align: center;
+        }
+        .burger {
+          display: flex;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .helix-stage {
+          height: 320px;
+          order: -1;
+        }
+        .market-grid,
+        .fin-grid,
+        .tss,
+        .benefit-grid {
+          grid-template-columns: 1fr;
+        }
+        .sowhat {
+          grid-column: span 1;
+        }
+        .comp-grid,
+        .engine-grid,
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+        .tab-panel.active {
+          grid-template-columns: 1fr 1fr;
+        }
+        .gtm-grid {
+          grid-template-columns: 1fr;
+        }
+        .gtm-item {
+          border-left: none !important;
+          border-top: 1px solid var(--line);
+          padding: 26px 0;
+        }
+        .gtm-item:first-child {
+          border-top: none;
+          padding-top: 0;
+        }
+        .check-grid {
+          grid-template-columns: 1fr;
+        }
+        .cta-band {
+          grid-template-columns: 1fr;
+          padding: 40px 28px;
+        }
+        .wrap {
+          padding: 0 20px;
+        }
+      }
+      @media (max-width: 620px) {
+        .tab-panel.active {
+          grid-template-columns: 1fr;
+        }
+        .hero-proof {
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <!-- SEO ⑧ Skip-to-content: cải thiện Accessibility score (Lighthouse ≥ 90)
+         → gián tiếp ảnh hưởng xếp hạng vì Google dùng Lighthouse để đánh giá trải nghiệm. -->
+    <a
+      href="#main-content"
+      class="skip-link"
+      style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"
+      onfocus="this.style.cssText='position:fixed;left:16px;top:16px;width:auto;height:auto;overflow:visible;padding:10px 18px;background:var(--cyan);color:#04140f;font-weight:700;border-radius:8px;z-index:99999;font-family:var(--font-m)'"
+      onblur="this.style.cssText='position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden'"
+    >Chuyển đến nội dung chính</a>
+    <script>
+      // Apply saved theme before first paint to avoid a flash of the wrong theme
+      try {
+        var savedTheme = localStorage.getItem("dna-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.body.setAttribute("data-theme", savedTheme);
+        }
+      } catch (e) {}
+    </script>
+    <div id="loading-screen">
+      <div class="loading-logo">
+        <div class="loading-title">PROJECT DNA</div>
+
+        <div class="loading-subtitle" data-i18n="loading_subtitle">
+          Loading...
+        </div>
+
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="scroll-progress"></div>
+    <!-- SEO ⑧ <main> landmark bắt buộc: Googlebot và screen reader dùng
+         để xác định vùng nội dung chính của trang. -->
+    <main id="main-content">
+    <header id="siteHeader">
+      <nav id="navbar" aria-label="Điều hướng chính">
+        <div class="logo">
+          <span class="helix-dot"><i></i><i></i><i></i></span>PROJECT DNA
+        </div>
+        <div class="nav-right">
+          <div class="navlinks">
+            <a href="#thi-truong" data-lang="market" data-i18n="nav_market"
+              >Thị trường</a
+            >
+            <a href="#noi-dau" data-lang="pain" data-i18n="nav_pain">Nỗi đau</a>
+            <a href="#quy-trinh" data-lang="process" data-i18n="nav_process"
+              >Quy trình</a
+            >
+            <a href="#cong-nghe" data-lang="technology" data-i18n="nav_tech"
+              >Công nghệ AI</a
+            >
+            <a href="#tai-chinh" data-lang="finance" data-i18n="nav_finance"
+              >Tài chính</a
+            >
+          </div>
+
+          <!-- SEO ⑧ lang-btn: role=group + aria-label cho từng nút để screen reader đọc rõ
+               tên ngôn ngữ thay vì chỉ đọc "VI" / "EN" / "JP". -->
+          <div class="language-switcher" role="group" aria-label="Chọn ngôn ngữ">
+            <button class="lang-btn active" data-language="vi" aria-label="Tiếng Việt" aria-pressed="true">VI</button>
+
+            <button class="lang-btn" data-language="en" aria-label="English" aria-pressed="false">EN</button>
+
+            <button class="lang-btn" data-language="jp" aria-label="日本語" aria-pressed="false">JP</button>
+          </div>
+
+          <!-- SEO ⑧ aria-label mô tả hành động đang có hiệu lực; JS theme.js sẽ
+               cập nhật aria-label khi toggle. -->
+          <button id="themeToggle" class="theme-btn" aria-label="Chuyển sang chế độ sáng">
+            🌙
+          </button>
+
+          <a
+            href="#lien-he"
+            class="nav-cta"
+            data-lang="demo"
+            data-i18n="nav_cta"
+          >
+            Đặt lịch demo
+          </a>
+        </div>
+        <!-- SEO ⑧ aria-expanded sẽ được JS (navbar.js) cập nhật khi toggle menu
+             (code navbar.js đã gọi setAttribute('aria-expanded', ...) — đảm bảo khớp). -->
+        <button class="burger" id="burger" aria-label="Mở menu điều hướng" aria-expanded="false" aria-controls="navbar">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <!-- SEO ⑥ Section landmark + aria-label giúp Googlebot phân loại nội dung đúng ngũ cảnh -->
+    <section class="hero wrap" aria-label="Giới thiệu Project DNA">
+      <div class="hero-grid">
+        <div class="reveal in">
+          <span class="eyebrow" data-i18n="hero_eyebrow"
+            >Bản Lĩnh Tiên Phong — Nền tảng AI</span
+          >
+          <h1 data-i18n="hero_h1">
+            Mọi đồ án tốt nghiệp<br />đều mang một <em>DNA</em>.<br />Chúng tôi
+            giúp doanh nghiệp đọc được nó.
+          </h1>
+          <p class="lead" data-i18n="hero_lead">
+            Project DNA dùng AI phân tích mã nguồn, báo cáo và slide của sinh
+            viên để tạo hồ sơ năng lực được xác thực khách quan — kết nối trực
+            tiếp với bài toán thật của doanh nghiệp, thay vì để đồ án nằm im
+            trong kho lưu trữ.
+          </p>
+          <div class="hero-ctas">
+            <a href="#lien-he" class="btn-primary" data-i18n="hero_cta1"
+              >Xem demo nền tảng →</a
+            >
+            <a href="#thi-truong" class="btn-ghost" data-i18n="hero_cta2"
+              >Đọc phân tích thị trường</a
+            >
+          </div>
+          <div class="hero-proof">
+            <div>
+              <strong>244</strong
+              ><span data-i18n="hero_proof1">TRƯỜNG ĐẠI HỌC TẠI VN</span>
+            </div>
+            <div>
+              <strong>313K+</strong
+              ><span data-i18n="hero_proof2">SV TỐT NGHIỆP / NĂM</span>
+            </div>
+            <div>
+              <strong>0,41%</strong
+              ><span data-i18n="hero_proof3">GDP CHI CHO R&amp;D</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO ⑧ aria-hidden=true: DNA helix là animation trang trí thuần túy.
+             Nội dung thành phần ("Sinh viên", "Doanh nghiệp") đã có trong text bên trái.
+             Screen reader bỏ qua để tránh nhiễu. -->
+        <div class="helix-stage" aria-hidden="true">
+          <span class="node-label top">Sinh viên</span>
+          <div class="dna-helix" id="helix"></div>
+          <span class="node-label bottom">Doanh nghiệp</span>
+          <div class="helix-tags">
+            <span class="helix-tag t1" id="tag1">Semantic Parsing</span>
+            <span class="helix-tag t2" id="tag2">Compatibility Scoring</span>
+            <span class="helix-tag t3" id="tag3">AI-Verified Profile</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker-wrap">
+      <div class="ticker" id="ticker">
+        <span class="ticker-item" data-i18n="ticker1"
+          ><span class="dot"></span>EdTech Việt Nam
+          <b>1,1 tỷ USD → 3,2 tỷ USD</b> (2025–2034)</span
+        >
+        <span class="ticker-item" data-i18n="ticker2"
+          ><span class="dot"></span>AI trong giáo dục
+          <b>CAGR 35,31%/năm</b></span
+        >
+        <span class="ticker-item" data-i18n="ticker3"
+          ><span class="dot"></span><b>2,35 triệu</b> sinh viên đang theo
+          học</span
+        >
+        <span class="ticker-item" data-i18n="ticker4"
+          ><span class="dot"></span>Chuyển giao công nghệ <b>&lt; 5%</b> tổng
+          doanh thu trường ĐH</span
+        >
+        <span class="ticker-item" data-i18n="ticker5"
+          ><span class="dot"></span>TAM ước tính <b>~967,14 tỷ VNĐ/năm</b></span
+        >
+        <span class="ticker-item" data-i18n="ticker1"
+          ><span class="dot"></span>EdTech Việt Nam
+          <b>1,1 tỷ USD → 3,2 tỷ USD</b> (2025–2034)</span
+        >
+        <span class="ticker-item" data-i18n="ticker2"
+          ><span class="dot"></span>AI trong giáo dục
+          <b>CAGR 35,31%/năm</b></span
+        >
+        <span class="ticker-item" data-i18n="ticker3"
+          ><span class="dot"></span><b>2,35 triệu</b> sinh viên đang theo
+          học</span
+        >
+        <span class="ticker-item" data-i18n="ticker4"
+          ><span class="dot"></span>Chuyển giao công nghệ <b>&lt; 5%</b> tổng
+          doanh thu trường ĐH</span
+        >
+        <span class="ticker-item" data-i18n="ticker5"
+          ><span class="dot"></span>TAM ước tính <b>~967,14 tỷ VNĐ/năm</b></span
+        >
+      </div>
+    </div>
+
+    <!-- MARKET -->
+    <section class="section wrap" id="thi-truong">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="s1_eyebrow"
+          >Bối cảnh thị trường 2024–2026</span
+        >
+        <h2 data-i18n="s1_h2">
+          Giáo dục Việt Nam đang tạo ra một mỏ dữ liệu chưa ai khai thác
+        </h2>
+        <p data-i18n="s1_body">
+          244 trường đại học, hơn 2,35 triệu sinh viên và hơn 313.000 cử nhân,
+          kỹ sư tốt nghiệp mỗi năm — nhưng phần lớn đồ án chỉ được lưu trữ, hiếm
+          khi được doanh nghiệp khai thác hay thương mại hóa.
+        </p>
+      </div>
+
+      <div class="market-grid">
+        <div class="chart-card reveal">
+          <h4 data-i18n="m1_title">Quy mô thị trường EdTech Việt Nam</h4>
+          <span class="sub" data-i18n="m1_sub"
+            >Tỷ USD · IMARC Group, 2025–2034</span
+          >
+          <svg viewBox="0 0 320 140" width="100%" height="140">
+            <polyline
+              points="10,120 90,102 170,74 250,40 305,18"
+              fill="none"
+              stroke="#2fe6c9"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <polygon
+              points="10,120 90,102 170,74 250,40 305,18 305,132 10,132"
+              fill="url(#gcyan)"
+              opacity="0.18"
+            />
+            <defs>
+              <linearGradient id="gcyan" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#2fe6c9" />
+                <stop offset="1" stop-color="#2fe6c9" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <circle cx="10" cy="120" r="3.5" fill="#2fe6c9" />
+            <circle cx="305" cy="18" r="3.5" fill="#2fe6c9" />
+            <text
+              x="4"
+              y="136"
+              font-family="IBM Plex Mono"
+              font-size="9"
+              fill="#5c6b87"
+            >
+              2025 · 1,1B
+            </text>
+            <text
+              x="256"
+              y="14"
+              font-family="IBM Plex Mono"
+              font-size="9"
+              fill="#2fe6c9"
+            >
+              2034 · 3,2B
+            </text>
+          </svg>
+          <div class="chart-legend">
+            <span data-i18n="m1_legend"
+              ><i style="background: #2fe6c9"></i>CAGR ~12,3%/năm</span
+            >
+          </div>
+        </div>
+
+        <div class="chart-card reveal">
+          <h4 data-i18n="m2_title">Quy mô thị trường AI trong Giáo dục</h4>
+          <span class="sub" data-i18n="m2_sub"
+            >Triệu USD · IMARC Group, 2025–2034</span
+          >
+          <svg viewBox="0 0 320 140" width="100%" height="140">
+            <polyline
+              points="10,124 90,118 170,96 250,54 305,16"
+              fill="none"
+              stroke="#8b7cf6"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <polygon
+              points="10,124 90,118 170,96 250,54 305,16 305,132 10,132"
+              fill="url(#gviolet)"
+              opacity="0.18"
+            />
+            <defs>
+              <linearGradient id="gviolet" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#8b7cf6" />
+                <stop offset="1" stop-color="#8b7cf6" stop-opacity="0" />
+              </linearGradient>
+            </defs>
+            <circle cx="10" cy="124" r="3.5" fill="#8b7cf6" />
+            <circle cx="305" cy="16" r="3.5" fill="#8b7cf6" />
+            <text
+              x="4"
+              y="136"
+              font-family="IBM Plex Mono"
+              font-size="9"
+              fill="#5c6b87"
+            >
+              2025 · 32,6M
+            </text>
+            <text
+              x="248"
+              y="12"
+              font-family="IBM Plex Mono"
+              font-size="9"
+              fill="#8b7cf6"
+            >
+              2034 · 532,4M
+            </text>
+          </svg>
+          <div class="chart-legend">
+            <span data-i18n="m2_legend"
+              ><i style="background: #8b7cf6"></i>CAGR ~35,3%/năm</span
+            >
+          </div>
+        </div>
+
+        <div class="sowhat reveal" data-i18n="sowhat">
+          <b>So what?</b>
+          Thị trường EdTech và AI trong giáo dục đều tăng trưởng hai chữ số.
+          Nhưng Project DNA không cạnh tranh với LMS hay nền tảng học trực tuyến
+          — chúng tôi giải quyết một khoảng trống khác: khai thác giá trị của đồ
+          án tốt nghiệp, kết nối doanh nghiệp và thúc đẩy đổi mới sáng tạo ngay
+          từ ghế nhà trường.
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="section section-alt" id="noi-dau">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="s2_eyebrow">Phân tích nỗi đau</span>
+          <h2 data-i18n="s2_h2">Ba bên cùng chịu chung một khoảng cách</h2>
+          <p data-i18n="s2_body">
+            Sinh viên, doanh nghiệp và trường đại học đều gặp cùng một vấn đề
+            gốc: chưa có nền tảng số nào kết nối và khai thác giá trị thật của
+            đồ án tốt nghiệp.
+          </p>
+        </div>
+
+        <div class="tabs reveal">
+          <button class="tab-btn active" data-tab="sv" data-i18n="tab_student">
+            Sinh viên
+          </button>
+          <button class="tab-btn" data-tab="dn" data-i18n="tab_business">
+            Doanh nghiệp
+          </button>
+          <button class="tab-btn" data-tab="tr" data-i18n="tab_university">
+            Trường đại học
+          </button>
+        </div>
+
+        <div class="tab-panel active" data-panel="sv">
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_finance">Tài chính</span>
+            <p data-i18n="sv_p1">
+              Tự chi trả dữ liệu, thiết bị, tên miền, bản quyền — nhưng không có
+              cơ chế thu hồi hay thương mại hóa sau khi bảo vệ.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_productivity">Năng suất</span>
+            <p data-i18n="sv_p2">
+              4–6 tháng làm đồ án, xong rồi cất kho — chưa từng trở thành hồ sơ
+              năng lực số phục vụ tuyển dụng hay khởi nghiệp.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_process">Quy trình</span>
+            <p data-i18n="sv_p3">
+              Đăng ký, nộp và bảo vệ đồ án vẫn mang tính hành chính, thiếu công
+              cụ đối sánh và đánh giá bằng AI.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_support">Hỗ trợ</span>
+            <p data-i18n="sv_p4">
+              Ít cơ hội tiếp cận dữ liệu thực tế, mentor doanh nghiệp và bài
+              toán sản xuất trong lúc làm đồ án.
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="dn">
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_finance">Tài chính</span>
+            <p data-i18n="dn_p1">
+              Gánh chi phí tuyển dụng, đào tạo lại nhân sự mới và rủi ro tuyển
+              sai người — đặc biệt nặng với SMEs.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_productivity">Năng suất</span>
+            <p data-i18n="dn_p2">
+              Kỹ sư nội bộ mất thời gian cho việc kiểm thử, rà soát tài liệu
+              thay vì tập trung vào R&D lõi.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_process">Quy trình</span>
+            <p data-i18n="dn_p3">
+              Hợp tác với trường qua nhiều đầu mối, thiếu công cụ theo dõi tiến
+              độ dự án theo thời gian thực.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_support">Hỗ trợ</span>
+            <p data-i18n="dn_p4">
+              Khó đánh giá năng lực thực chiến của sinh viên nếu chỉ dựa vào CV,
+              bảng điểm hoặc phỏng vấn.
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="tr">
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_finance">Tài chính</span>
+            <p data-i18n="tr_p1">
+              Doanh thu từ chuyển giao công nghệ dưới 5% tổng doanh thu — chưa
+              đáp ứng tiêu chuẩn kiểm định theo TT 01/2024.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_productivity">Năng suất</span>
+            <p data-i18n="tr_p2">
+              Giảng viên quản lý hàng trăm đồ án mỗi kỳ bằng phương pháp thủ
+              công hoặc hệ thống rời rạc.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_process">Quy trình</span>
+            <p data-i18n="tr_p3">
+              Thiếu kết nối dữ liệu giữa đào tạo, đồ án và nhu cầu tuyển dụng
+              thực tế của doanh nghiệp.
+            </p>
+          </div>
+          <div class="pain-card">
+            <span class="tag" data-i18n="tag_support">Hỗ trợ</span>
+            <p data-i18n="tr_p4">
+              Không có kênh phản hồi từ doanh nghiệp để cải tiến chương trình
+              đào tạo theo sát thị trường lao động.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETITIVE -->
+    <section class="section wrap" id="doi-thu">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="s3_eyebrow">Phân tích đối thủ</span>
+        <h2 data-i18n="s3_h2">Một khoảng trống mà chưa ai lấp đầy</h2>
+        <p data-i18n="s3_body">
+          Các giải pháp hiện tại đều giải quyết một phần của bài toán — nhưng
+          không ai kết nối đồng thời cả ba: sinh viên, đồ án và doanh nghiệp.
+        </p>
+      </div>
+      <div class="comp-grid">
+        <div class="comp-card reveal">
+          <div class="ring">01</div>
+          <h4 data-i18n="comp1_title">Thị trường quốc tế</h4>
+          <p data-i18n="comp1_body">
+            Riipen (Canada) với mô hình Work-Integrated Learning, Parker Dewey
+            (Mỹ) với Micro-Internship — đã chứng minh mô hình, nhưng chưa nội
+            địa hóa cho ngôn ngữ và quy trình đào tạo Việt Nam.
+          </p>
+          <div class="gap" data-i18n="comp1_gap">→ Cơ hội bản địa hóa</div>
+        </div>
+        <div class="comp-card reveal">
+          <div class="ring">02</div>
+          <h4 data-i18n="comp2_title">Sàn giao dịch công nghệ</h4>
+          <p data-i18n="comp2_body">
+            Techport.vn và các sàn KH&amp;CN có uy tín với công nghệ nặng, tài
+            sản trí tuệ của viện, trường lâu năm — nhưng bỏ trống hoàn toàn phân
+            khúc đồ án tốt nghiệp sinh viên.
+          </p>
+          <div class="gap" data-i18n="comp2_gap">
+            → Cơ hội chiếm lĩnh phân khúc trẻ
+          </div>
+        </div>
+        <div class="comp-card reveal">
+          <div class="ring">03</div>
+          <h4 data-i18n="comp3_title">Cổng tuyển dụng</h4>
+          <p data-i18n="comp3_body">
+            TopCV, VietnamWorks có lưu lượng lớn nhưng chỉ dựa trên CV tĩnh, dễ
+            "khai khống" năng lực và không liên kết với đồ án hay dữ liệu đào
+            tạo.
+          </p>
+          <div class="gap" data-i18n="comp3_gap">→ Cơ hội xác thực bằng AI</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-alt" id="quy-trinh">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="s4_eyebrow"
+            >Cách thức hoạt động</span
+          >
+          <h2 data-i18n="s4_h2">
+            Từ kho lưu trữ thụ động đến hệ sinh thái kết nối chủ động
+          </h2>
+          <p data-i18n="s4_body">
+            Một chu trình khép kín: Doanh nghiệp — Nhà trường — Sinh viên.
+          </p>
+        </div>
+        <div class="flow reveal">
+          <div class="flow-line"></div>
+          <div class="flow-step">
+            <div class="flow-num">01</div>
+            <div>
+              <h4 data-i18n="flow1_title">Doanh nghiệp thiết lập yêu cầu</h4>
+              <p data-i18n="flow1_body">
+                Đăng tải "bài toán thực tế" — tính năng, thách thức R&D — kèm
+                ngân sách và mô tả kỹ thuật.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">02</div>
+            <div>
+              <h4 data-i18n="flow2_title">Giảng viên cấu trúc đề tài</h4>
+              <p data-i18n="flow2_body">
+                Chuẩn hóa yêu cầu doanh nghiệp thành đề tài đồ án đạt chuẩn học
+                thuật, vẫn giữ nguyên lõi kỹ thuật cần giải quyết.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">03</div>
+            <div>
+              <h4 data-i18n="flow3_title">Sinh viên đăng ký và triển khai</h4>
+              <p data-i18n="flow3_body">
+                AI gợi ý đề tài tương thích nhất theo kỹ năng tích lũy; sinh
+                viên thực hiện dưới sự đồng hướng dẫn của giảng viên và chuyên
+                gia doanh nghiệp.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">04</div>
+            <div>
+              <h4 data-i18n="flow4_title">
+                Hệ thống chấm điểm &amp; tạo DNA dự án
+              </h4>
+              <p data-i18n="flow4_body">
+                AI phân tích đa chiều báo cáo, mã nguồn và slide để dựng hồ sơ
+                "AI-Verified Profile" cho từng sinh viên.
+              </p>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">05</div>
+            <div>
+              <h4 data-i18n="flow5_title">Doanh nghiệp tiếp cận Dashboard</h4>
+              <p data-i18n="flow5_body">
+                Xem điểm số Project DNA, so sánh ứng viên trực quan, tiến tới
+                tuyển dụng hoặc chuyển giao công nghệ.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI ENGINE -->
+    <section class="section wrap" id="cong-nghe">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="s5_eyebrow"
+          >Trái tim AI của Project DNA</span
+        >
+        <h2 data-i18n="s5_h2">
+          AI không chỉ đọc tiêu đề — nó đọc từng dòng code
+        </h2>
+        <p data-i18n="s5_body">
+          Ba động cơ chính vượt xa một kho lưu trữ thông thường, biến "đọc hàng
+          trăm trang tài liệu" thành vài giây so khớp.
+        </p>
+      </div>
+
+      <div class="engine-grid">
+        <div class="engine-card reveal">
+          <div class="idx">Engine / 01</div>
+          <h4>Semantic Parsing</h4>
+          <p data-i18n="engine1_body">
+            Phân tích sâu mã nguồn, báo cáo và logic nghiệp vụ để dựng bản đồ kỹ
+            năng thực tế (skill-cloud maps) cho từng sinh viên.
+          </p>
+        </div>
+        <div class="engine-card reveal">
+          <div class="idx">Engine / 02</div>
+          <h4>Compatibility Scoring</h4>
+          <p data-i18n="engine2_body">
+            Tính điểm tương thích giữa bài toán doanh nghiệp và "DNA" của đồ án
+            — gợi ý ghép nối tự động, như một "Tinder cho tri thức".
+          </p>
+        </div>
+        <div class="engine-card reveal">
+          <div class="idx">Engine / 03</div>
+          <h4>AI-Verified Profile</h4>
+          <p data-i18n="engine3_body">
+            Hồ sơ năng lực được AI xác thực khách quan: ngôn ngữ lập trình, kiến
+            trúc hệ thống, độ phức tạp thuật toán, tiềm năng thương mại.
+          </p>
+        </div>
+      </div>
+
+      <div class="engine-card reveal">
+        <h4 style="margin-bottom: 16px" data-i18n="engine_why_title">
+          Vì sao mô hình này vận hành được
+        </h4>
+        <div class="chips">
+          <span class="chip" data-i18n="chip1"
+            >Giải "Cold Start" — DN đăng bài toán làm mồi thu hút dữ liệu chất
+            lượng cao</span
+          >
+          <span class="chip" data-i18n="chip2"
+            >Đánh giá thực chất — AI hỗ trợ đọc tài liệu, tập trung
+            "Proof-of-Concept"</span
+          >
+          <span class="chip" data-i18n="chip3"
+            >Giá trị thương mại — dự báo khả năng thương mại hóa của đồ án</span
+          >
+          <span class="chip" data-i18n="chip4"
+            >Đồng bộ hóa — nối nhu cầu thị trường lao động với đầu ra đào
+            tạo</span
+          >
+        </div>
+        <div class="stack-row">
+          <span data-i18n="stack_label">Kiến trúc hệ thống:</span>
+          <span class="stackitem">Next.js / ReactJS</span>
+          <span class="stackitem">FastAPI</span>
+          <span class="stackitem">PostgreSQL</span>
+          <span class="stackitem">Vector Database</span>
+          <span class="stackitem">Cloud Storage</span>
+          <span class="stackitem">JWT Auth</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="section section-alt" id="loi-ich">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="s6_eyebrow">Lợi ích mang lại</span>
+          <h2 data-i18n="s6_h2">Một nền tảng, hai giá trị song hành</h2>
+        </div>
+        <div class="benefit-grid">
+          <div class="benefit-col reveal">
+            <span class="who" data-i18n="tab_student">Sinh viên</span>
+            <div class="benefit-item">
+              <h4 data-i18n="ben1_title">Portfolio thông minh</h4>
+              <p data-i18n="ben1_body">
+                Tự động tổng hợp mã nguồn, kết quả thử nghiệm và báo cáo chuyên
+                sâu thành hồ sơ năng lực trực quan.
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h4 data-i18n="ben2_title">Kết nối cơ hội</h4>
+              <p data-i18n="ben2_body">
+                Ghép nối năng lực cá nhân với yêu cầu thực tế từ các doanh
+                nghiệp đối tác — không cần quen biết trước.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-col dn reveal">
+            <span class="who" data-i18n="tab_business">Doanh nghiệp</span>
+            <div class="benefit-item">
+              <h4 data-i18n="ben3_title">Săn đón nhân tài sớm</h4>
+              <p data-i18n="ben3_body">
+                Tối ưu chi phí R&D, tuyển dụng và rút ngắn time-to-market qua
+                kết nối trực tiếp với sinh viên và trường đại học.
+              </p>
+            </div>
+            <div class="benefit-item">
+              <h4 data-i18n="ben4_title">Giải pháp thực chiến</h4>
+              <p data-i18n="ben4_body">
+                Tiếp cận ý tưởng và giải pháp cho bài toán của mình thông qua
+                các đồ án tốt nghiệp xuất sắc nhất.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAM SAM SOM -->
+    <section class="section wrap" id="thi-truong-muc-tieu">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="s7_eyebrow"
+          >Dung lượng thị trường</span
+        >
+        <h2>TAM – SAM – SOM</h2>
+        <p data-i18n="tss_body">
+          Mô hình định giá kết hợp thuê bao doanh nghiệp và trường đại học, tính
+          theo doanh thu hằng năm.
+        </p>
+      </div>
+      <div class="tss">
+        <div class="rings reveal">
+          <div class="ring-c r1">
+            <span data-i18n="ring_tam">TAM<br />Toàn thị trường</span>
+          </div>
+          <div class="ring-c r2">
+            <span data-i18n="ring_sam"
+              >SAM<br />15% DN ưu tiên<br />+ 100 trường</span
+            >
+          </div>
+          <div class="ring-c r3">
+            <span data-i18n="ring_som">SOM<br />Năm 1</span>
+          </div>
+        </div>
+        <div class="tss-list reveal">
+          <div class="tss-row tam">
+            <div class="tss-dot"></div>
+            <div>
+              <h4 data-i18n="tam_title">Thị trường khả dụng (TAM)</h4>
+              <span class="val" data-i18n="tam_val">~967,14 tỷ VNĐ / năm</span>
+              <p data-i18n="tam_body">
+                Phục vụ toàn bộ 75.000 doanh nghiệp công nghệ số và 244 cơ sở
+                giáo dục đại học tại Việt Nam.
+              </p>
+            </div>
+          </div>
+          <div class="tss-row sam">
+            <div class="tss-dot"></div>
+            <div>
+              <h4 data-i18n="sam_title">Thị trường mục tiêu (SAM)</h4>
+              <span class="val" data-i18n="sam_val">~138 tỷ VNĐ / năm</span>
+              <p data-i18n="sam_body">
+                Ưu tiên 15% doanh nghiệp công nghệ (~11.250 DN) tại Hà Nội,
+                TP.HCM, Đà Nẵng và 100 trường trọng điểm.
+              </p>
+            </div>
+          </div>
+          <div class="tss-row som">
+            <div class="tss-dot"></div>
+            <div>
+              <h4 data-i18n="som_title">Thị trường thực tế (SOM)</h4>
+              <span class="val" data-i18n="som_val">~4,05 tỷ VNĐ</span>
+              <p data-i18n="som_body">
+                Năm thứ nhất, mục tiêu triển khai Pilot với 300 doanh nghiệp và
+                15 trường đại học.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINANCE -->
+    <section class="section section-alt" id="tai-chinh">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="s8_eyebrow"
+            >KPIs &amp; Dự báo tài chính</span
+          >
+          <h2 data-i18n="s8_h2">Lộ trình 3 năm (2026–2028)</h2>
+          <p data-i18n="s8_body">
+            Tăng trưởng dựa trên hiệu ứng mạng lưới (Network Effect) và doanh
+            thu định kỳ theo mô hình B2B SaaS.
+          </p>
+        </div>
+        <div class="fin-grid">
+          <div class="chart-card reveal">
+            <h4 data-i18n="fin_chart_title">Doanh thu định kỳ dự kiến</h4>
+            <span class="sub" data-i18n="fin_chart_sub">Tỷ VNĐ / năm</span>
+            <svg viewBox="0 0 400 190" width="100%" height="220">
+              <line
+                x1="40"
+                y1="150"
+                x2="380"
+                y2="150"
+                stroke="#5c6b87"
+                stroke-width="1"
+                opacity="0.4"
+              />
+              <rect
+                x="70"
+                y="132"
+                width="46"
+                height="18"
+                rx="4"
+                fill="#2fe6c9"
+              />
+              <rect
+                x="195"
+                y="82"
+                width="46"
+                height="68"
+                rx="4"
+                fill="#8b7cf6"
+              />
+              <rect
+                x="320"
+                y="24"
+                width="46"
+                height="126"
+                rx="4"
+                fill="#f5a93f"
+              />
+              <text
+                x="93"
+                y="170"
+                text-anchor="middle"
+                font-family="IBM Plex Mono"
+                font-size="11"
+                fill="#9fadc4"
+              >
+                2026
+              </text>
+              <text
+                x="218"
+                y="170"
+                text-anchor="middle"
+                font-family="IBM Plex Mono"
+                font-size="11"
+                fill="#9fadc4"
+              >
+                2027
+              </text>
+              <text
+                x="343"
+                y="170"
+                text-anchor="middle"
+                font-family="IBM Plex Mono"
+                font-size="11"
+                fill="#9fadc4"
+              >
+                2028
+              </text>
+              <text
+                x="93"
+                y="126"
+                text-anchor="middle"
+                font-family="IBM Plex Mono"
+                font-size="11"
+                fill="#2fe6c9"
+              >
+                4,05
+              </text>
+              <text
+                x="218"
+                y="76"
+                text-anchor="middle"
+                font-family="IBM Plex Mono"
+                font-size="11"
+                fill="#8b7cf6"
+              >
+                ~12
+              </text>
+              <text
+                x="343"
+                y="18"
+                text-anchor="middle"
+                font-family="IBM Plex Mono"
+                font-size="11"
+                fill="#f5a93f"
+              >
+                ~26,4
+              </text>
+            </svg>
+            <div class="chart-legend">
+              <span data-i18n="fin_legend"
+                ><i style="background: #f5a93f"></i>Mục tiêu 2028: 2.000 DN
+                &amp; 80 trường đại học</span
+              >
+            </div>
+          </div>
+          <div class="kpi-stack">
+            <div class="kpi-card reveal">
+              <div class="label" data-i18n="kpi1_label">Quy mô tăng trưởng</div>
+              <div class="value" data-i18n="kpi1_value">5,6 lần</div>
+              <p data-i18n="kpi1_body">
+                2.000 doanh nghiệp và 80 trường đại học vào năm 2028.
+              </p>
+            </div>
+            <div class="kpi-card reveal">
+              <div class="label" data-i18n="kpi2_label">Hiệu suất kết nối</div>
+              <div class="value">+15%</div>
+              <p data-i18n="kpi2_body">
+                Tỷ lệ kết nối thành công tăng từ 10% lên 25%.
+              </p>
+            </div>
+            <div class="kpi-card reveal">
+              <div class="label" data-i18n="kpi3_label">
+                Tỷ lệ giữ chân khách hàng
+              </div>
+              <div class="value">85%</div>
+              <p data-i18n="kpi3_body">
+                Chứng minh giá trị cốt lõi của nền tảng qua Network Effect.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GTM -->
+    <section class="section wrap" id="lo-trinh">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="s9_eyebrow"
+          >Chiến lược thâm nhập thị trường</span
+        >
+        <h2 data-i18n="s9_h2">Go-to-Market theo 3 giai đoạn</h2>
+      </div>
+      <div class="gtm-grid reveal">
+        <div class="gtm-item">
+          <div class="gtm-phase" data-i18n="gtm1_phase">0–6 tháng</div>
+          <h4 data-i18n="gtm1_title">Xây dựng nguồn cung</h4>
+          <p data-i18n="gtm1_body">
+            Hợp tác 15 trường đại học để thu thập đồ án, xây cơ sở dữ liệu và
+            khẳng định giá trị (Proof of Concept) cùng 300 doanh nghiệp.
+          </p>
+        </div>
+        <div class="gtm-item">
+          <div class="gtm-phase" data-i18n="gtm2_phase">6–12 tháng</div>
+          <h4 data-i18n="gtm2_title">Phát triển khách hàng doanh nghiệp</h4>
+          <p data-i18n="gtm2_body">
+            Tiếp cận qua hiệp hội ngành nghề, trung tâm đổi mới sáng tạo và bán
+            hàng B2B trực tiếp; tăng trưởng nhờ hiệu ứng mạng lưới.
+          </p>
+        </div>
+        <div class="gtm-item">
+          <div class="gtm-phase" data-i18n="gtm3_phase">12+ tháng</div>
+          <h4 data-i18n="gtm3_title">Mở rộng quy mô</h4>
+          <p data-i18n="gtm3_body">
+            Dùng dữ liệu thực tế để cải thiện thuật toán AI, mở rộng toàn quốc
+            và tích hợp với hệ thống quản lý học vụ hiện có.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY / FEASIBILITY -->
+    <section class="section section-alt" id="tai-sao">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow" data-i18n="s10_eyebrow"
+            >Tính khả thi &amp; giá trị bền vững</span
+          >
+          <h2 data-i18n="s10_h2">Vậy tại sao phải chọn Project DNA?</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-card reveal">
+            <h4 data-i18n="why1_title">Hiệu quả kinh tế</h4>
+            <p data-i18n="why1_body">
+              Tối ưu hóa quy trình kết nối, giảm thiểu chi phí tuyển dụng và R&D
+              cho doanh nghiệp vừa và nhỏ.
+            </p>
+          </div>
+          <div class="why-card reveal">
+            <h4 data-i18n="why2_title">Tính chính xác</h4>
+            <p data-i18n="why2_body">
+              Dữ liệu năng lực được AI xác thực khách quan, giảm rủi ro tuyển
+              sai người so với CV truyền thống.
+            </p>
+          </div>
+          <div class="why-card reveal">
+            <h4 data-i18n="why3_title">Tính đổi mới</h4>
+            <p data-i18n="why3_body">
+              Đưa bài toán thực tế của doanh nghiệp vào trường học từ sớm, rút
+              ngắn khoảng cách đào tạo — thị trường lao động.
+            </p>
+          </div>
+        </div>
+        <div class="check-grid reveal">
+          <div class="check-item">
+            <span class="ok">✓</span>
+            <span data-i18n="check1">Cloud sẵn sàng, AI/LLM đã phổ biến</span>
+          </div>
+          <div class="check-item">
+            <span class="ok">✓</span>
+            <span data-i18n="check2"
+              >Dòng tiền ổn định theo mô hình B2B SaaS</span
+            >
+          </div>
+          <div class="check-item">
+            <span class="ok">✓</span>
+            <span data-i18n="check3">Xóa bỏ lãng phí in ấn, hướng tới ESG</span>
+          </div>
+          <div class="check-item">
+            <span class="ok">✓</span>
+            <span data-i18n="check4">Đẩy lùi gian lận, đạo văn học thuật</span>
+          </div>
+          <div class="check-item">
+            <span class="ok">✓</span>
+            <span data-i18n="check5">Phù hợp Thông tư 01/2024/TT-BGDĐT</span>
+          </div>
+          <div class="check-item">
+            <span class="ok">✓</span>
+            <span data-i18n="check6"
+              >Cơ hội công bằng cho sinh viên mọi vùng miền</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" id="lien-he">
+      <div class="cta-band reveal">
+        <div>
+          <h2 data-i18n="s11_h2">
+            Sẵn sàng để đồ án tốt nghiệp trở thành tài sản số?
+          </h2>
+          <p data-i18n="s11_body">
+            Nhóm Bản Lĩnh Tiên Phong xin chân thành tiếp thu ý kiến của Hội đồng
+            để hoàn thiện Project DNA tốt hơn từng ngày.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a href="#" class="btn-primary" data-i18n="final_cta1"
+            >Đặt lịch trình bày demo →</a
+          >
+          <a href="#" class="btn-ghost" data-i18n="final_cta2"
+            >Tải bản phân tích thị trường (PDF)</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Đóng <main> landmark trước footer -->
+    </main>
+
+    <footer class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="logo">
+            <span class="helix-dot"><i></i><i></i><i></i></span>PROJECT DNA
+          </div>
+          <div class="fteam" data-i18n="footer_team">
+            Một sản phẩm của nhóm Bản Lĩnh Tiên Phong
+          </div>
+        </div>
+        <div class="navlinks">
+          <a href="#thi-truong" data-i18n="nav_market">Thị trường</a>
+          <a href="#noi-dau" data-i18n="nav_pain">Nỗi đau</a>
+          <a href="#quy-trinh" data-i18n="nav_process">Quy trình</a>
+          <a href="#cong-nghe" data-i18n="footer_tech">Công nghệ</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footer_copyright"
+          >© 2026 Project DNA — Bản Lĩnh Tiên Phong</span
+        >
+        <span data-i18n="footer_tag">Demo UX/UI · Đồ án tốt nghiệp</span>
+      </div>
+    </footer>
+
+    <button class="back-top" id="backTop" aria-label="Lên đầu trang">↑</button>
+
+    <script>
+      // Back-to-top button (header scroll state + mobile menu now live in js/navbar.js)
+      const backTop = document.getElementById("backTop");
+      window.addEventListener("scroll", () => {
+        backTop.classList.toggle("show", window.scrollY > 700);
+      });
+      backTop.addEventListener("click", () =>
+        window.scrollTo({ top: 0, behavior: "smooth" }),
+      );
+
+      // Reveal on scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.15 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // Pain point tabs
+      document.querySelectorAll(".tab-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".tab-btn")
+            .forEach((b) => b.classList.remove("active"));
+          document
+            .querySelectorAll(".tab-panel")
+            .forEach((p) => p.classList.remove("active"));
+          btn.classList.add("active");
+          document
+            .querySelector('.tab-panel[data-panel="' + btn.dataset.tab + '"]')
+            .classList.add("active");
+        });
+      });
+
+      // Build DNA helix rungs
+      const helix = document.getElementById("helix");
+      const rungCount = 16;
+      for (let i = 0; i < rungCount; i++) {
+        const rung = document.createElement("div");
+        rung.className = "rung";
+        rung.style.top = i * (420 / rungCount) + "px";
+        rung.style.animationDelay = -i * 0.32 + "s";
+        rung.innerHTML =
+          '<div class="bar"></div><div class="ball l"></div><div class="ball r"></div>';
+        helix.appendChild(rung);
+      }
+
+      // Cycle helix tags
+      const tags = [
+        document.getElementById("tag1"),
+        document.getElementById("tag2"),
+        document.getElementById("tag3"),
+      ];
+      let tIdx = 0;
+      function cycleTags() {
+        tags.forEach((t) => t.classList.remove("show"));
+        tags[tIdx].classList.add("show");
+        tIdx = (tIdx + 1) % tags.length;
+      }
+      cycleTags();
+      setInterval(cycleTags, 2200);
+    </script>
+    <script>
+      /* theme.js — light / dark mode toggle, persisted across visits */
+      (function () {
+        const STORAGE_KEY = "dna-theme";
+        const toggleBtn = document.getElementById("themeToggle");
+        const body = document.body;
+
+        function applyIcon(theme) {
+          if (!toggleBtn) return;
+          toggleBtn.textContent = theme === "light" ? "☀️" : "🌙";
+          toggleBtn.setAttribute(
+            "aria-label",
+            theme === "light"
+              ? "Chuyển sang chế độ tối"
+              : "Chuyển sang chế độ sáng",
+          );
+        }
+
+        function setTheme(theme, persist) {
+          body.setAttribute("data-theme", theme);
+          applyIcon(theme);
+          if (persist) {
+            try {
+              localStorage.setItem(STORAGE_KEY, theme);
+            } catch (e) {}
+          }
+        }
+
+        // Sync the toggle icon with whatever theme is already applied
+        // (the inline head script already set data-theme before paint).
+        let initial = body.getAttribute("data-theme") || "dark";
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === "light" || saved === "dark") initial = saved;
+        } catch (e) {}
+        setTheme(initial, false);
+
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", () => {
+            const next =
+              body.getAttribute("data-theme") === "light" ? "dark" : "light";
+            setTheme(next, true);
+          });
+        }
+      })();
+    </script>
+
+    <script>
+      /* language.js — VI / EN / JP switcher for elements tagged with data-i18n.
+   VI is the site's original language and lives in the HTML already, so it
+   doesn't need a dictionary entry: switching back to "vi" simply restores
+   the text each element started with. */
+      (function () {
+        const STORAGE_KEY = "dna-lang";
+
+        const dict = {
+          en: {
+            nav_market: "Market",
+            nav_pain: "Pain points",
+            nav_process: "How it works",
+            nav_tech: "AI Technology",
+            nav_finance: "Financials",
+            nav_cta: "Book a demo",
+            loading_subtitle: "Loading...",
+            hero_eyebrow: "Bản Lĩnh Tiên Phong — AI Platform",
+            hero_h1:
+              "Every graduation project<br />carries a <em>DNA</em>.<br />We help businesses read it.",
+            hero_lead:
+              "Project DNA uses AI to analyze students' source code, reports and slides to build objectively verified competency profiles — connecting directly with real business problems, instead of letting projects sit unused in an archive.",
+            hero_cta1: "See the platform demo →",
+            hero_cta2: "Read the market analysis",
+            hero_proof1: "UNIVERSITIES IN VIETNAM",
+            hero_proof2: "GRADUATES / YEAR",
+            hero_proof3: "OF GDP SPENT ON R&D",
+            s1_eyebrow: "Market context 2024–2026",
+            s1_h2:
+              "Vietnamese education is generating a data mine no one is tapping",
+            s2_eyebrow: "Pain point analysis",
+            s2_h2: "Three sides sharing the same gap",
+            s3_eyebrow: "Competitor analysis",
+            s3_h2: "A gap that no one has filled yet",
+            s4_eyebrow: "How it works",
+            s4_h2: "From a passive archive to an active connection ecosystem",
+            s5_eyebrow: "The AI heart of Project DNA",
+            s5_h2: "AI doesn't just read titles — it reads every line of code",
+            s6_eyebrow: "Benefits delivered",
+            s6_h2: "One platform, two values side by side",
+            s7_eyebrow: "Market size",
+            s8_eyebrow: "KPIs & Financial forecast",
+            s8_h2: "3-year roadmap (2026–2028)",
+            s9_eyebrow: "Market entry strategy",
+            s9_h2: "Go-to-market in 3 phases",
+            s10_eyebrow: "Feasibility & sustainable value",
+            s10_h2: "So why choose Project DNA?",
+            s11_h2: "Ready to turn graduation projects into digital assets?",
+            final_cta1: "Book a demo presentation →",
+            final_cta2: "Download the market analysis (PDF)",
+            footer_team: "A product by team Bản Lĩnh Tiên Phong",
+            footer_tech: "Technology",
+            footer_copyright: "© 2026 Project DNA — Bản Lĩnh Tiên Phong",
+            footer_tag: "UX/UI Demo · Graduation Project",
+
+            ticker1: "Vietnam EdTech <b>$1.1B → $3.2B</b> (2025–2034)",
+            ticker2: "AI in education <b>CAGR 35.31%/yr</b>",
+            ticker3: "<b>2.35 million</b> students currently enrolled",
+            ticker4: "Technology transfer <b>&lt; 5%</b> of university revenue",
+            ticker5: "Estimated TAM <b>~VND 967.14B/year</b>",
+
+            s1_body:
+              "244 universities, over 2.35 million students, and more than 313,000 graduates and engineers each year — yet most projects are simply archived, rarely tapped or commercialized by businesses.",
+            m1_title: "Vietnam EdTech market size",
+            m1_sub: "USD billion · IMARC Group, 2025–2034",
+            m1_legend: "CAGR ~12.3%/year",
+            m2_title: "AI in Education market size",
+            m2_sub: "USD million · IMARC Group, 2025–2034",
+            m2_legend: "CAGR ~35.3%/year",
+            sowhat:
+              "<b>So what?</b> The EdTech and AI-in-education markets are both growing at double-digit rates. But Project DNA doesn't compete with LMS or online-learning platforms — we solve a different gap: unlocking the value of graduation projects, connecting businesses, and driving innovation right from the classroom.",
+
+            s2_body:
+              "Students, businesses, and universities all face the same root problem: no digital platform yet connects and unlocks the real value of graduation projects.",
+            tab_student: "Students",
+            tab_business: "Businesses",
+            tab_university: "Universities",
+            tag_finance: "Finance",
+            tag_productivity: "Productivity",
+            tag_process: "Process",
+            tag_support: "Support",
+            sv_p1:
+              "Pays for data, equipment, domains, and copyrights out of pocket — with no mechanism to recoup costs or commercialize after defending the project.",
+            sv_p2:
+              "4–6 months spent on a project, then it's shelved — never becoming a digital competency profile for recruitment or entrepreneurship.",
+            sv_p3:
+              "Registering, submitting, and defending a project remains administrative, lacking AI-powered comparison and evaluation tools.",
+            sv_p4:
+              "Few chances to access real-world data, business mentors, or production challenges while working on the project.",
+            dn_p1:
+              "Bears the cost of recruiting and retraining new hires, plus the risk of bad hires — especially burdensome for SMEs.",
+            dn_p2:
+              "In-house engineers spend time on testing and document review instead of focusing on core R&D.",
+            dn_p3:
+              "Collaborating with universities through multiple contacts, without tools to track project progress in real time.",
+            dn_p4:
+              "Hard to assess students' real-world skills based only on a CV, transcript, or interview.",
+            tr_p1:
+              "Technology-transfer revenue is under 5% of total revenue — falling short of the accreditation standard under Circular 01/2024.",
+            tr_p2:
+              "Lecturers manage hundreds of projects each term using manual methods or disconnected systems.",
+            tr_p3:
+              "Lack of data connection between training, projects, and businesses' real recruitment needs.",
+            tr_p4:
+              "No feedback channel from businesses to help improve training programs in line with the labor market.",
+
+            s3_body:
+              "Current solutions each solve part of the problem — but none connect all three at once: students, projects, and businesses.",
+            comp1_title: "International players",
+            comp1_body:
+              "Riipen (Canada) with its Work-Integrated Learning model and Parker Dewey (US) with Micro-Internships have proven the concept, but haven't localized for Vietnam's language and training processes.",
+            comp1_gap: "→ Localization opportunity",
+            comp2_title: "Technology transfer platforms",
+            comp2_body:
+              "Techport.vn and other established science & technology exchanges focus on heavy technology and IP from long-standing institutes and universities — but leave the student graduation-project segment completely untapped.",
+            comp2_gap: "→ Opportunity to capture the youth segment",
+            comp3_title: "Recruitment portals",
+            comp3_body:
+              "TopCV and VietnamWorks have large traffic but rely only on static CVs, which are easy to embellish and aren't linked to projects or training data.",
+            comp3_gap: "→ Opportunity for AI-based verification",
+
+            s4_body: "A closed loop: Business — University — Student.",
+            flow1_title: "Business submits a request",
+            flow1_body:
+              'Posts a "real-world challenge" — a feature or R&D challenge — with a budget and technical description.',
+            flow2_title: "Lecturer structures the topic",
+            flow2_body:
+              "Standardizes the business request into an academically compliant project topic, while preserving the core technical problem to solve.",
+            flow3_title: "Student registers and executes",
+            flow3_body:
+              "AI suggests the most compatible topic based on accumulated skills; the student works under the joint guidance of a lecturer and a business expert.",
+            flow4_title: "System scores and builds a project DNA",
+            flow4_body:
+              'AI performs multi-dimensional analysis of reports, source code, and slides to build an "AI-Verified Profile" for each student.',
+            flow5_title: "Business accesses the dashboard",
+            flow5_body:
+              "Views Project DNA scores, visually compares candidates, and moves toward hiring or technology transfer.",
+
+            s5_body:
+              'Three core engines go far beyond a standard archive, turning "reading hundreds of pages of documents" into seconds of matching.',
+            engine1_body:
+              "Deeply analyzes source code, reports, and business logic to build real skill-cloud maps for each student.",
+            engine2_body:
+              'Scores compatibility between a business challenge and a project\'s "DNA" — automatically suggesting matches, like a "Tinder for talent."',
+            engine3_body:
+              "An objectively AI-verified competency profile: programming languages, system architecture, algorithmic complexity, and commercial potential.",
+            engine_why_title: "Why this model works",
+            chip1:
+              'Solves the "cold start" problem — businesses post real challenges to attract high-quality data',
+            chip2:
+              'Substantive evaluation — AI reads documentation, focused on "proof of concept"',
+            chip3:
+              "Commercial value — forecasts a project's commercialization potential",
+            chip4:
+              "Synchronization — links labor market demand with training output",
+            stack_label: "System architecture:",
+
+            ben1_title: "Smart portfolio",
+            ben1_body:
+              "Automatically compiles source code, test results, and in-depth reports into a visual competency profile.",
+            ben2_title: "Connect to opportunities",
+            ben2_body:
+              "Matches personal skills with real requirements from partner businesses — no prior connections needed.",
+            ben3_title: "Spot talent early",
+            ben3_body:
+              "Optimizes R&D and recruitment costs and shortens time-to-market through direct connections with students and universities.",
+            ben4_title: "Real-world solutions",
+            ben4_body:
+              "Access ideas and solutions to your business challenges through the best graduation projects.",
+
+            tss_body:
+              "A pricing model combining business and university subscriptions, based on annual revenue.",
+            ring_tam: "TAM<br />Total market",
+            ring_sam:
+              "SAM<br />15% priority businesses<br />+ 100 universities",
+            ring_som: "SOM<br />Year 1",
+            tam_title: "Total addressable market (TAM)",
+            tam_val: "~VND 967.14 billion / year",
+            tam_body:
+              "Serving all 75,000 digital technology businesses and 244 higher-education institutions in Vietnam.",
+            sam_title: "Serviceable available market (SAM)",
+            sam_val: "~VND 138 billion / year",
+            sam_body:
+              "Prioritizing 15% of technology businesses (~11,250 companies) in Hanoi, Ho Chi Minh City, Da Nang, and 100 key universities.",
+            som_title: "Serviceable obtainable market (SOM)",
+            som_val: "~VND 4.05 billion",
+            som_body:
+              "In year one, the goal is a pilot rollout with 300 businesses and 15 universities.",
+
+            s8_body:
+              "Growth driven by network effects and recurring revenue under a B2B SaaS model.",
+            fin_chart_title: "Projected recurring revenue",
+            fin_chart_sub: "VND billion / year",
+            fin_legend: "2028 target: 2,000 businesses & 80 universities",
+            kpi1_label: "Growth scale",
+            kpi1_value: "5.6x",
+            kpi1_body: "2,000 businesses and 80 universities by 2028.",
+            kpi2_label: "Matching efficiency",
+            kpi2_body: "Successful match rate rising from 10% to 25%.",
+            kpi3_label: "Customer retention rate",
+            kpi3_body:
+              "Demonstrates the platform's core value through the network effect.",
+
+            gtm1_phase: "Months 0–6",
+            gtm1_title: "Build the supply side",
+            gtm1_body:
+              "Partner with 15 universities to collect projects, build the database, and validate value (proof of concept) with 300 businesses.",
+            gtm2_phase: "Months 6–12",
+            gtm2_title: "Grow the business customer base",
+            gtm2_body:
+              "Reach customers through industry associations, innovation centers, and direct B2B sales; grow through network effects.",
+            gtm3_phase: "12+ months",
+            gtm3_title: "Scale up",
+            gtm3_body:
+              "Use real-world data to improve the AI algorithms, expand nationwide, and integrate with existing academic management systems.",
+
+            why1_title: "Economic efficiency",
+            why1_body:
+              "Streamlines the matching process, reducing recruitment and R&D costs for small and medium-sized businesses.",
+            why2_title: "Accuracy",
+            why2_body:
+              "Competency data is objectively verified by AI, reducing the risk of bad hires compared with traditional CVs.",
+            why3_title: "Innovation",
+            why3_body:
+              "Brings real business challenges into schools early, narrowing the gap between training and the labor market.",
+            check1: "Cloud infrastructure ready, AI/LLM now mainstream",
+            check2: "Stable cash flow with a B2B SaaS model",
+            check3: "Eliminates printing waste, supports ESG goals",
+            check4: "Reduces academic fraud and plagiarism",
+            check5: "Complies with Circular 01/2024/TT-BGDĐT",
+            check6: "Fair opportunity for students from every region",
+
+            s11_body:
+              "The Bản Lĩnh Tiên Phong team sincerely welcomes the Committee's feedback to keep improving Project DNA every day.",
+          },
+          jp: {
+            nav_market: "市場",
+            nav_pain: "課題",
+            nav_process: "仕組み",
+            nav_tech: "AI技術",
+            nav_finance: "財務",
+            nav_cta: "デモを予約",
+            loading_subtitle: "読み込み中...",
+            hero_eyebrow: "Bản Lĩnh Tiên Phong — AIプラットフォーム",
+            hero_h1:
+              "すべての卒業プロジェクトには<br /><em>DNA</em>が宿っています。<br />私たちはそれを企業が読み取れるようにします。",
+            hero_lead:
+              "Project DNAはAIを使って学生のソースコード、レポート、スライドを分析し、客観的に検証されたスキルプロファイルを作成します。プロジェクトを倉庫に眠らせる代わりに、企業の実際の課題と直接つなげます。",
+            hero_cta1: "プラットフォームのデモを見る →",
+            hero_cta2: "市場分析を読む",
+            hero_proof1: "ベトナムの大学数",
+            hero_proof2: "年間卒業生数",
+            hero_proof3: "R&D支出（対GDP比）",
+            s1_eyebrow: "2024〜2026年の市場背景",
+            s1_h2:
+              "ベトナムの教育は、誰も活用していないデータの宝庫を生み出している",
+            s2_eyebrow: "課題分析",
+            s2_h2: "三者が共有する同じギャップ",
+            s3_eyebrow: "競合分析",
+            s3_h2: "まだ誰も埋めていない空白",
+            s4_eyebrow: "仕組み",
+            s4_h2: "受動的なアーカイブから能動的な連携エコシステムへ",
+            s5_eyebrow: "Project DNAのAIの核心",
+            s5_h2: "AIはタイトルだけでなく、コードの一行一行を読む",
+            s6_eyebrow: "提供する価値",
+            s6_h2: "1つのプラットフォーム、2つの価値",
+            s7_eyebrow: "市場規模",
+            s8_eyebrow: "KPIと財務予測",
+            s8_h2: "3年間のロードマップ（2026〜2028）",
+            s9_eyebrow: "市場参入戦略",
+            s9_h2: "3段階のGo-to-Market",
+            s10_eyebrow: "実現可能性と持続的価値",
+            s10_h2: "では、なぜProject DNAを選ぶのか？",
+            s11_h2:
+              "卒業プロジェクトをデジタル資産に変える準備はできていますか？",
+            final_cta1: "デモ発表を予約する →",
+            final_cta2: "市場分析（PDF）をダウンロード",
+            footer_team: "Bản Lĩnh Tiên Phongチームによるプロダクト",
+            footer_tech: "技術",
+            footer_copyright: "© 2026 Project DNA — Bản Lĩnh Tiên Phong",
+            footer_tag: "UX/UIデモ・卒業プロジェクト",
+
+            ticker1:
+              "ベトナムのEdTech市場 <b>11億ドル→32億ドル</b>（2025〜2034年）",
+            ticker2: "教育分野のAI <b>年平均成長率35.31%</b>",
+            ticker3: "<b>235万人</b>の在学中の学生",
+            ticker4: "技術移転収入は大学収益の<b>5%未満</b>",
+            ticker5: "推定TAM <b>年間約9,671.4億VND</b>",
+
+            s1_body:
+              "大学244校、学生235万人以上、そして毎年31万3千人を超える卒業生・エンジニアを輩出——しかし大半のプロジェクトは保管されるだけで、企業に活用・事業化されることはほとんどありません。",
+            m1_title: "ベトナムEdTech市場規模",
+            m1_sub: "10億米ドル · IMARC Group、2025〜2034年",
+            m1_legend: "年平均成長率 約12.3%",
+            m2_title: "教育分野におけるAI市場規模",
+            m2_sub: "100万米ドル · IMARC Group、2025〜2034年",
+            m2_legend: "年平均成長率 約35.3%",
+            sowhat:
+              "<b>So what?</b> EdTech市場も教育分野のAI市場も二桁成長を続けています。しかしProject DNAはLMSやオンライン学習プラットフォームと競合するのではなく、別のギャップ——卒業プロジェクトの価値の活用、企業とのつながり、そして学生時代からのイノベーション促進——に取り組みます。",
+
+            s2_body:
+              "学生、企業、大学はいずれも同じ根本的な課題を抱えています。卒業プロジェクトの本当の価値をつなぎ、活用するデジタルプラットフォームがまだ存在しないのです。",
+            tab_student: "学生",
+            tab_business: "企業",
+            tab_university: "大学",
+            tag_finance: "財務",
+            tag_productivity: "生産性",
+            tag_process: "プロセス",
+            tag_support: "サポート",
+            sv_p1:
+              "データ、機材、ドメイン、著作権費用を自己負担していますが、発表後にそれを回収したり事業化したりする仕組みがありません。",
+            sv_p2:
+              "4〜6ヶ月をかけてプロジェクトを完成させても、そのまま保管されるだけで、就職や起業に使える能力プロファイルになったことはありません。",
+            sv_p3:
+              "プロジェクトの登録・提出・発表は依然として事務手続き中心で、AIによる照合・評価ツールが不足しています。",
+            sv_p4:
+              "プロジェクト制作中に、実際のデータ、企業メンター、実務課題に触れる機会が少ないです。",
+            dn_p1:
+              "採用や新人の再教育にかかるコストと、採用ミスのリスクを負っています——中小企業にとって特に重い負担です。",
+            dn_p2:
+              "社内エンジニアが、コアとなるR&Dに集中する代わりに、テストや資料確認に時間を取られています。",
+            dn_p3:
+              "複数の窓口を通じて大学と連携しているため、プロジェクトの進捗をリアルタイムで追跡するツールがありません。",
+            dn_p4:
+              "CV、成績表、面接だけでは、学生の実践的な能力を判断するのが困難です。",
+            tr_p1:
+              "技術移転による収益は総収益の5%未満——通達01/2024が求める認証基準に届いていません。",
+            tr_p2:
+              "教員は毎学期数百件のプロジェクトを、手作業や分断されたシステムで管理しています。",
+            tr_p3:
+              "教育、プロジェクト、企業の実際の採用ニーズの間にデータの連携がありません。",
+            tr_p4:
+              "労働市場の実情に合わせて教育プログラムを改善するための、企業からのフィードバック経路がありません。",
+
+            s3_body:
+              "既存のソリューションはそれぞれ課題の一部を解決していますが、学生・プロジェクト・企業の三者を同時につなぐものはありません。",
+            comp1_title: "海外の先行事例",
+            comp1_body:
+              "カナダのRiipen（Work-Integrated Learningモデル）や米国のParker Dewey（マイクロインターンシップ）はモデルを実証済みですが、ベトナムの言語や教育プロセスに合わせたローカライズはまだ行われていません。",
+            comp1_gap: "→ ローカライズの機会",
+            comp2_title: "技術移転プラットフォーム",
+            comp2_body:
+              "Techport.vnなど信頼性の高い科学技術取引プラットフォームは、研究機関や大学の重厚な技術・知的財産を扱っていますが、学生の卒業プロジェクト分野は完全に手つかずのままです。",
+            comp2_gap: "→ 若年層セグメントを開拓する機会",
+            comp3_title: "採用ポータル",
+            comp3_body:
+              "TopCVやVietnamWorksはアクセス数は多いものの、静的なCVのみに依存しており、能力の誇張がしやすく、プロジェクトや教育データとは連携していません。",
+            comp3_gap: "→ AIによる検証の機会",
+
+            s4_body: "企業——大学——学生という閉じた循環サイクル。",
+            flow1_title: "企業がニーズを登録",
+            flow1_body:
+              "機能やR&Dの課題といった「実際の課題」を、予算と技術仕様とともに投稿します。",
+            flow2_title: "教員がテーマを構成",
+            flow2_body:
+              "企業のニーズを学術基準に沿った卒業プロジェクトのテーマへと整え、解決すべき技術的な核心を保持します。",
+            flow3_title: "学生が登録し実行",
+            flow3_body:
+              "AIが蓄積されたスキルに基づき最も適合するテーマを提案し、学生は教員と企業の専門家の共同指導のもとで取り組みます。",
+            flow4_title: "システムが採点しプロジェクトDNAを生成",
+            flow4_body:
+              "AIがレポート、ソースコード、スライドを多角的に分析し、学生ごとに「AI-Verified Profile」を構築します。",
+            flow5_title: "企業がダッシュボードにアクセス",
+            flow5_body:
+              "Project DNAのスコアを確認し、候補者を視覚的に比較して、採用や技術移転へと進みます。",
+
+            s5_body:
+              "3つの中核エンジンが従来のアーカイブをはるかに超え、「何百ページもの資料を読む」作業を数秒のマッチングに変えます。",
+            engine1_body:
+              "ソースコード、レポート、業務ロジックを深く分析し、学生一人ひとりの実際のスキルマップ（skill-cloud maps）を構築します。",
+            engine2_body:
+              "企業の課題とプロジェクトの「DNA」との適合スコアを算出し、「知識のためのTinder」のように自動でマッチングを提案します。",
+            engine3_body:
+              "プログラミング言語、システムアーキテクチャ、アルゴリズムの複雑さ、商業的可能性まで、AIが客観的に検証した能力プロファイルです。",
+            engine_why_title: "このモデルが機能する理由",
+            chip1:
+              "「コールドスタート」問題を解決——企業が課題を投稿し、質の高いデータを呼び込む",
+            chip2:
+              "実質的な評価——AIが資料の読解を支援し、「プルーフ・オブ・コンセプト」に焦点を当てる",
+            chip3: "商業的価値——プロジェクトの事業化可能性を予測",
+            chip4: "同期化——労働市場のニーズと教育の成果を結びつける",
+            stack_label: "システムアーキテクチャ：",
+
+            ben1_title: "スマートポートフォリオ",
+            ben1_body:
+              "ソースコード、テスト結果、詳細なレポートを自動的にまとめ、視覚的な能力プロファイルを作成します。",
+            ben2_title: "機会とのつながり",
+            ben2_body:
+              "個人のスキルをパートナー企業の実際のニーズとマッチングします——事前の面識は不要です。",
+            ben3_title: "早期の人材発掘",
+            ben3_body:
+              "学生や大学との直接的なつながりを通じて、R&Dと採用コストを最適化し、市場投入までの時間を短縮します。",
+            ben4_title: "実践的なソリューション",
+            ben4_body:
+              "最も優れた卒業プロジェクトを通じて、自社の課題に対するアイデアとソリューションにアクセスできます。",
+
+            tss_body:
+              "企業と大学のサブスクリプションを組み合わせ、年間収益に基づく価格モデルです。",
+            ring_tam: "TAM<br />市場全体",
+            ring_sam: "SAM<br />優先企業15%<br />+大学100校",
+            ring_som: "SOM<br />1年目",
+            tam_title: "全体市場規模（TAM）",
+            tam_val: "約9,671.4億VND／年",
+            tam_body:
+              "ベトナム国内のデジタル技術企業75,000社と高等教育機関244校すべてを対象とします。",
+            sam_title: "獲得可能市場（SAM）",
+            sam_val: "約1,380億VND／年",
+            sam_body:
+              "ハノイ、ホーチミン市、ダナンのテクノロジー企業の優先15%（約11,250社）と、重点大学100校を対象とします。",
+            som_title: "初年度獲得市場（SOM）",
+            som_val: "約40.5億VND",
+            som_body:
+              "1年目は、企業300社・大学15校とのパイロット導入を目標とします。",
+
+            s8_body:
+              "ネットワーク効果とB2B SaaSモデルによる経常収益を基盤とした成長。",
+            fin_chart_title: "見込まれる経常収益",
+            fin_chart_sub: "10億VND / 年",
+            fin_legend: "2028年目標：企業2,000社・大学80校",
+            kpi1_label: "成長規模",
+            kpi1_value: "5.6倍",
+            kpi1_body: "2028年までに企業2,000社、大学80校。",
+            kpi2_label: "マッチング効率",
+            kpi2_body: "マッチング成功率が10%から25%に上昇。",
+            kpi3_label: "顧客維持率",
+            kpi3_body:
+              "ネットワーク効果を通じてプラットフォームの中核的価値を証明。",
+
+            gtm1_phase: "0〜6ヶ月",
+            gtm1_title: "供給基盤の構築",
+            gtm1_body:
+              "15の大学と提携してプロジェクトを収集し、データベースを構築、300社の企業とともに価値実証（Proof of Concept）を行います。",
+            gtm2_phase: "6〜12ヶ月",
+            gtm2_title: "企業顧客の拡大",
+            gtm2_body:
+              "業界団体やイノベーションセンターを通じたアプローチと直接的なB2B営業により、ネットワーク効果で成長を図ります。",
+            gtm3_phase: "12ヶ月以降",
+            gtm3_title: "規模の拡大",
+            gtm3_body:
+              "実データを活用してAIアルゴリズムを改善し、全国展開を進め、既存の学務管理システムと統合します。",
+
+            why1_title: "経済効率",
+            why1_body:
+              "マッチングプロセスを最適化し、中小企業の採用・R&Dコストを削減します。",
+            why2_title: "正確性",
+            why2_body:
+              "能力データはAIによって客観的に検証され、従来のCVに比べて採用ミスのリスクを減らします。",
+            why3_title: "革新性",
+            why3_body:
+              "企業の実課題を早期に学校へ持ち込み、教育と労働市場のギャップを縮めます。",
+            check1: "クラウドは準備完了、AI/LLMはすでに普及",
+            check2: "B2B SaaSモデルによる安定したキャッシュフロー",
+            check3: "印刷の無駄をなくし、ESGを推進",
+            check4: "学術不正・盗作の抑止",
+            check5: "通達01/2024/TT-BGDĐTに準拠",
+            check6: "すべての地域の学生に公平な機会",
+
+            s11_body:
+              "Bản Lĩnh Tiên Phongチームは、Project DNAを日々改善していくため、審査委員会からのご意見を真摯に受け止めます。",
+          },
+        };
+
+        const taggedEls = Array.from(document.querySelectorAll("[data-i18n]"));
+        // Cache the original (Vietnamese) markup so switching back to "vi" is exact.
+        const originals = new Map();
+        taggedEls.forEach((el) => originals.set(el, el.innerHTML));
+
+        const buttons = Array.from(document.querySelectorAll(".lang-btn"));
+        const htmlEl = document.documentElement;
+
+        function applyLanguage(lang) {
+          taggedEls.forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (lang === "vi") {
+              el.innerHTML = originals.get(el);
+              return;
+            }
+            const table = dict[lang] || dict.en;
+            if (table[key] !== undefined) {
+              el.innerHTML = table[key];
+            } else {
+              // Fall back to English, then to the original Vietnamese text.
+              el.innerHTML =
+                dict.en[key] !== undefined ? dict.en[key] : originals.get(el);
+            }
+          });
+
+          buttons.forEach((btn) => {
+            btn.classList.toggle("active", btn.dataset.language === lang);
+          });
+
+          htmlEl.setAttribute("lang", lang === "jp" ? "ja" : lang);
+
+          try {
+            localStorage.setItem(STORAGE_KEY, lang);
+          } catch (e) {}
+        }
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () =>
+            applyLanguage(btn.dataset.language),
+          );
+        });
+
+        let initial = "vi";
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) initial = saved;
+        } catch (e) {}
+        applyLanguage(initial);
+      })();
+    </script>
+
+    <script>
+      /* loading.js — animated progress bar on the initial loading screen */
+      (function () {
+        const screen = document.getElementById("loading-screen");
+        const bar = screen ? screen.querySelector(".loading-progress") : null;
+        if (!screen) return;
+
+        let progress = 0;
+        const tick = () => {
+          // Ease toward 90% while real assets load, then jump to 100% on window "load"
+          progress += (90 - progress) * 0.12 + 1;
+          if (progress > 90) progress = 90;
+          if (bar) bar.style.width = progress + "%";
+          if (progress < 90) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+
+        function finish() {
+          if (bar) bar.style.width = "100%";
+          setTimeout(() => screen.classList.add("loaded"), 250);
+        }
+
+        if (document.readyState === "complete") {
+          finish();
+        } else {
+          window.addEventListener("load", finish);
+          // Safety net so the screen never gets stuck on a slow connection
+          setTimeout(finish, 3500);
+        }
+      })();
+    </script>
+
+    <script>
+      /* navbar.js — sticky header state, mobile menu, active-section highlighting */
+      (function () {
+        const header = document.getElementById("siteHeader");
+        const navbar = document.getElementById("navbar");
+        const burger = document.getElementById("burger");
+        const navLinks = Array.from(
+          document.querySelectorAll(".navlinks a[href^='#']"),
+        );
+
+        if (!header || !navbar) return;
+
+        // Sticky header background once the page scrolls
+        const onScroll = () => {
+          header.classList.toggle("scrolled", window.scrollY > 20);
+        };
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        // Mobile menu toggle
+        if (burger) {
+          burger.addEventListener("click", () => {
+            const isOpen = navbar.classList.toggle("mobile-open");
+            burger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            burger.classList.toggle("is-active", isOpen);
+          });
+
+          // Close the mobile menu after choosing a page / section
+          navLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              navbar.classList.remove("mobile-open");
+              burger.setAttribute("aria-expanded", "false");
+            });
+          });
+
+          const navCta = navbar.querySelector(".nav-cta");
+          if (navCta) {
+            navCta.addEventListener("click", () => {
+              navbar.classList.remove("mobile-open");
+            });
+          }
+
+          // Reset the mobile menu state if the viewport grows back to desktop
+          window.addEventListener("resize", () => {
+            if (window.innerWidth > 980) {
+              navbar.classList.remove("mobile-open");
+              burger.setAttribute("aria-expanded", "false");
+            }
+          });
+        }
+
+        // Highlight the nav link for the section currently in view
+        const sections = navLinks
+          .map((link) => document.querySelector(link.getAttribute("href")))
+          .filter(Boolean);
+
+        if (sections.length) {
+          const setActive = (id) => {
+            navLinks.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === "#" + id,
+              );
+            });
+          };
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) setActive(entry.target.id);
+              });
+            },
+            { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+          );
+
+          sections.forEach((section) => observer.observe(section));
+        }
+      })();
+    </script>
+
+    <script>
+      /* progress.js — thin bar at the top of the page tracking scroll depth */
+      (function () {
+        const bar = document.getElementById("scroll-progress");
+        if (!bar) return;
+
+        const update = () => {
+          const scrollTop = window.scrollY;
+          const docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          bar.style.width = pct + "%";
+        };
+
+        update();
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+      })();
+    </script>
+  </body>
+</html>

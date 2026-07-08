@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  sitemap.xml — Project DNA
+  TODO: Thay "your-domain.vn" bang domain that truoc khi deploy.
+
+  Luu y da ngon ngu (Muc 4 / seo.md):
+  Hien tai VI/EN/JP doi bang JavaScript tren cung 1 URL nen Google chi
+  index phien ban VI. De index EN/JP, can tach thanh route rieng
+  (/en/, /jp/) roi them <xhtml:link rel="alternate" hreflang="..."> vao day.
+-->
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <url>
+    <loc>https://your-domain.vn/</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!--
+    Khi da co URL rieng cho tung ngon ngu, bo comment va dung mau nay:
+
+  <url>
+    <loc>https://your-domain.vn/</loc>
+    <xhtml:link rel="alternate" hreflang="vi"        href="https://your-domain.vn/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://your-domain.vn/en/"/>
+    <xhtml:link rel="alternate" hreflang="ja"        href="https://your-domain.vn/jp/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://your-domain.vn/"/>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  -->
+</urlset>
