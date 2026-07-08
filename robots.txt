@@ -1,0 +1,41 @@
+# robots.txt — Project DNA
+# TODO: Thay "https://your-domain.vn" bằng domain thật trước khi deploy.
+# Tài liệu: https://developers.google.com/search/docs/crawling-indexing/robots/intro
+
+# -----------------------------------------------------------------------
+# Cho phép tất cả crawler index toàn bộ trang
+# -----------------------------------------------------------------------
+User-agent: *
+Allow: /
+
+# Chặn các thư mục không nên xuất hiện trên Google
+# (Bỏ comment và điều chỉnh theo cấu trúc thật khi deploy)
+# Disallow: /dev/
+# Disallow: /staging/
+# Disallow: /.git/
+# Disallow: /node_modules/
+# Disallow: /admin/
+
+# -----------------------------------------------------------------------
+# Quy tắc riêng cho Googlebot (tùy chọn — hiện giống rule chung)
+# -----------------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+# -----------------------------------------------------------------------
+# Chặn các bot AI scraper không mong muốn (tùy chọn)
+# Uncomment nếu bạn không muốn nội dung bị dùng để train AI model
+# -----------------------------------------------------------------------
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: CCBot
+# Disallow: /
+
+# User-agent: anthropic-ai
+# Disallow: /
+
+# -----------------------------------------------------------------------
+# Trỏ Googlebot đến sitemap để index nhanh hơn
+# -----------------------------------------------------------------------
+Sitemap: https://your-domain.vn/sitemap.xml
